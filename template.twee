@@ -92,8 +92,11 @@ $(document.head).find('#style-ui-bar').remove();
 <<cacheaudio "complete" "../assets/sound/uploadcomplete.mp3">>
 <<waitforaudio>>
 
+:: header
+<header></header>
 
 :: landing {"position":"425,75","size":"100,100"}
+<<include "header">>
 <main class="">
 <<button "Enter">><<goto "1">><</button>>
  </main>
@@ -117,7 +120,6 @@ $(document.head).find('#style-ui-bar').remove();
 <p>We need to find the words</p>
 <p>The words to unlock the club</p>
 <p>The lifesaving club</p>
- 
 <p>We need to search to make this place safe</p>
 <p>We need to protect the soldiers from the
 <div class="css-input code-input codeword1-input">
