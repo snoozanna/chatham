@@ -1,0 +1,888 @@
+/* GENERAL STYLES */
+
+@font-face {
+    font-family: "Arcon";
+    src: url("./assets/fonts/arcon/Arcon-Regular.otf");
+}
+@font-face {
+    font-family: "SpecialElite";
+    src: url("./assets/fonts/special-elite/SpecialElite.ttf");
+}
+
+body {
+	background-color: #000;
+	font-family: "Arcon", monospace;
+	font-size: 10px;
+	height: 100vh;
+	display:flex;
+	justify-content:center;
+	align-items: center;
+}
+
+body[data-tags~="t8n-dissolve"] .transition-in {
+  position: absolute;
+  opacity: 0;
+}
+body[data-tags~="t8n-dissolve"] .passage {
+  transition: 1s;
+  -webkit-transition: 1s;
+}
+body[data-tags~="t8n-dissolve"] .transition-out {
+  position: absolute;
+  opacity: 0;
+}
+
+a {
+  color: #f2647d;
+}
+
+a:hover {
+  color: #fff;
+}
+
+#story a.link-external:after {
+	content: "";
+}
+#passages {
+	max-width: 100%;
+	font-size: 1.3rem;
+}
+
+#story {
+	margin: 0
+}
+
+main{
+	padding: 5vw;
+    width: 85vw;
+    margin-top: 6rem;
+    margin-bottom: 10rem;
+}
+
+.main-section{
+    background:#000
+}
+
+
+button{
+    background-color: transparent;
+    border: #fff 1px solid;
+    border-radius: 3px;
+}
+
+button:hover{
+	background-color:#cf1b98;
+	border: #fff 1px solid;
+	color: #fff;
+}
+
+img.parrots {
+  max-width: 300px
+}
+
+.img.joker > button > img {
+  max-width: 200px
+}
+
+.codeword1-input > input[type="text"] {
+    min-width: 8rem;
+    max-width: 10rem;
+    display: inline;
+    margin-bottom: 5rem;
+}
+
+.door-container{
+  display:flex;
+  flex-direction: row;
+justify-content: space-around;
+  align-items:center;
+  text-align: right;
+}
+
+.door-item{
+  display:flex;
+  flex-direction:column
+}
+
+.door-item > button > img {
+  max-width: 7rem
+}
+
+.door-item > span {
+  text-align: center
+}
+
+.animal-container{
+  width:100%;
+  display:flex;
+  justify-content: center;
+  align-items:center
+}
+.animal{
+  max-width: 14rem;
+}
+
+
+/* MOBILE  */
+
+@media screen and (max-width: 700px) {
+	#passages {
+height: 100%;
+overflow: scroll;
+	font-size: 1.8rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#story {
+height: 100%
+}
+
+#passage-prestart{
+	height: 100%
+}
+
+main {
+	height: 100%;
+
+}
+
+a:active {
+  background-color: #f2647d;
+}
+
+input[type=text] {
+    min-width: 14em;
+}
+
+}
+
+/* LANDING PAGE */
+
+.landing{
+	display:flex;
+	justify-content: center;
+	align-items:center;
+	flex-direction: column;
+background-image: url("https://youhavefoundconey.net/CG/what/assets/img/coneybg.jpg");
+    color: #000 ;
+    height:100vh;
+    width:100vw;
+    margin-top:0
+
+}
+
+.landing-wrapper{
+        background: #fff;   
+        width:85vw;
+        padding: 3.5vw;
+        display:flex;
+	justify-content: center;
+	align-items:center;
+	flex-direction: column;
+}
+
+.landing > h1 {
+	font-weight: 500
+}
+
+#resultbutton > button {
+	background-color:#000;
+	border: #fff 1px solid;
+	color: #fff;
+}
+
+
+.landing > button:hover {
+	background-color:#f2647d;
+	border: #fff 1px solid;
+	color: #fff;
+}
+
+.title{
+font-weight: 100;
+font-size: 3rem;
+}
+
+.story-title{
+font-weight: 100;
+font-size: 1.6rem;
+}
+
+.logo{
+    max-width: 40%;
+}
+
+@media screen and (max-width: 700px) {
+.title {
+font-weight: 100;
+font-size: 3rem;
+}
+
+.logo{
+    max-width: 90%;
+}
+}
+
+/* ANIMATION */
+
+.coneylogoglitch{
+	/* position:absolute;
+    width: 529px; */
+  opacity: 0.85;
+	transform:translate(80px, 0px);
+	 animation: 1s logoglitch linear infinite both;
+}
+
+@keyframes logoglitch {
+  0% 		{width:590px;transform:translate(60px, 40px)}
+  49.999%	{width:590px;transform:translate(60px, 40px)}
+  50%		{width:300px;transform:translate(500px, 0px)}
+  54.999%	{width:300px;transform:translate(500px, 0px)}
+  55%		{width:590px;transform:translate(60px, 40px)}
+  94.999%	{width:590px;transform:translate(60px, 40px)}
+  95%		{width:300px;transform:translate(500px, 0px)}
+  99.999%	{width:300px;transform:translate(500px, 0px)}
+  100%		{width:590px;transform:translate(60px, 40px)}
+}
+
+.glitch-shape1{    
+  background-color: cyan;
+  position:absolute;
+  width: 100px;
+  height: 500px;
+  opacity: 0.85;
+  animation: 2s glitchshape1 steps(5, start) infinite forwards;
+}
+.glitch-shape2{    
+  background-color: rgb(0, 204, 51);
+  position:absolute;
+  width: 100px;
+  height: 500px;
+  opacity: 0.85;
+  animation: 2s glitchshape2 steps(5, start) infinite forwards reverse;
+}
+.glitch-shape3{    
+  background-color: cyan;
+  position:absolute;
+  width: 979px;
+  height: 24px;
+  opacity: 0.85;
+  animation: 1s glitchshape3 linear infinite forwards;
+}
+.glitch-shape4{    
+  background-color: blue;
+  position:absolute;
+  width: 2000px;
+  height: 40px;
+  transform:translate(-100px, 30px);
+}
+.glitch-shape5{    
+  background-color: black;
+  position:absolute;
+  width: 525px;
+  height: 92px;
+  transform:translate(20px, 500px);
+}
+
+@keyframes glitchshape1 {
+  0% 	{background-color:#70fdee; width:1000px;height:300px;transform:translate(690px, 49px)}
+  25%	{background-color: #cb3d24; width:540px;height:1049px;transform:translate(-355px, -1380px)}
+  50%	{background-color: #1abf35; width:68px;height:456px;transform:translate(880px, 936px)}
+  75%	{background-color: #f2952c; width:1078px;height:366px;transform:translate(314px, -330px)}
+  100%	{background-color: #3a9e8d; width:816px;height:1196px;transform:translate(-1020px,
+361px)}
+}
+
+@keyframes glitchshape2 {
+  0% 	{background-color: #5059ab; width:663px;height:1199px;transform:translate(489px,207px)}
+  25%	{background-color: #dc1b02; width:1220px;height:300px;transform:translate(-95px, 345px)}
+  50%	{background-color: #ef2556; width:723px;height:938px;transform:translate(1195px, 614px)}
+  75%	{background-color: #e3bcc0; width:1238px;height:508px;transform:translate(1200px, -106px)}
+  100%	{background-color: #f266a4; width:68px;height:456px;transform:translate(-20px, 669px)}
+}
+@keyframes glitchshape3 {
+  0% 	{transform:translate(900px, 800px)}
+  100%	{transform:translate(1000px,800px)}
+}
+
+.filmgrain{
+    position: absolute;
+  top: -500px;
+  right: -500px;
+  bottom: -500px;
+  left: -500px;
+  z-index: -1;
+  background: transparent url("https://youhavefoundconey.net/CG/what/assets/img/filmgrain.gif") 0 0;
+  background-size: 1000px;
+  opacity: 0.25;
+  overflow: hidden
+}
+
+.imgfadeout{
+	animation: 6.5s imgfadeout ease 1 forwards;
+}
+
+@keyframes imgfadeout {
+  0% 	{ opacity: 1; }
+  100%	{ opacity: 0; }
+}
+
+@keyframes bgfadeout {
+  0% 	{ background-color: rgba(255, 255, 255, 1) }
+  100%	{ background-color: rgba(255, 255, 255, 0) }
+}
+
+@keyframes bgfadein {
+  0% 	{ background-color: rgba(255, 255, 255, 0) }
+  100%	{ background-color: rgba(255, 255, 255, 1) }
+}
+
+.whitebgfadein{    
+  background-color: white;
+    position:absolute;
+	top:3%;
+  	bottom:3%;
+  	left:2%;
+  	right:2%;
+  z-index: 1;
+  animation: 6.5s bgfadein ease 1 forwards;
+}
+
+.whitebgfadeout{    
+  background-color: white;
+    position:absolute;
+	top:3%;
+  	bottom:3%;
+  	left:2%;
+  	right:2%;
+  z-index: 1;
+  animation: 6.5s bgfadeout ease 1 forwards;
+}
+
+
+
+.psa{
+  font-family: 'SpecialElite', sans-serif;
+	font-size: 20px;
+  font-weight: 500;
+	color: white;
+  background-color:transparent;
+}
+
+.psalogobright{
+    position:absolute;
+  	top: 50%;
+   left: 50%;
+   width: 750px;
+   height: 750px;
+   margin-top: -375px; /* Half the height */
+   margin-left: -375px; /* Half the width */
+  filter: brightness(100%);
+   	z-index: -1;
+}
+
+.psalogodark{
+    position:absolute;
+  	top: 50%;
+   left: 50%;
+   width: 750px;
+   height: 750px;
+   margin-top: -375px; /* Half the height */
+   margin-left: -375px; /* Half the width */
+  filter: brightness(27%);
+   	z-index: -2;
+}
+
+.psabg{
+  background-image: url(https://youhavefoundconey.net/CG/what/assets/img/coneybg_dark.jpg);  
+    position:absolute;
+	top:0%;
+  	bottom:0%;
+  	left:0%;
+  	right:0%;
+  z-index: -10;
+}
+
+.normal{
+  font-family: 'SpecialElite', sans-serif;
+	font-size: 25px;
+  font-weight: 500;
+	color: black;
+  /*background-color:white;
+  background-blend-mode: normal;*/
+}
+.whitebg{    
+  background-color: white;
+    position:absolute;
+	top:3%;
+  	bottom:3%;
+  	left:2%;
+  	right:2%;
+  z-index: -3;
+}
+.blackbg{    
+  background-color: black;
+    position:absolute;
+	top:0%;
+  	bottom:0%;
+  	left:0%;
+  	right:0%;
+}
+.glitchwhitebg{    
+  background-color: white;
+    position:absolute;
+	top:3%;
+  	bottom:3%;
+  	left:2%;
+  	right:2%;
+  z-index: -3;
+  animation: 0.1s bgglitch linear infinite forwards;
+}
+
+.whitebgfadein{    
+  background-color: white;
+    position:absolute;
+	top:3%;
+  	bottom:3%;
+  	left:2%;
+  	right:2%;
+  z-index: 1;
+  animation: 6.5s bgfadein ease 1 forwards;
+}
+
+.whitebgfadeout{    
+  background-color: white;
+    position:absolute;
+	top:3%;
+  	bottom:3%;
+  	left:2%;
+  	right:2%;
+  z-index: 1;
+  animation: 6.5s bgfadeout ease 1 forwards;
+}
+
+.coneylogoglitch{
+	position:absolute;
+    width: 529px;
+  opacity: 0.85;
+	transform:translate(80px, 0px);
+	 animation: 1s logoglitch linear infinite both;
+}
+
+.filmgrain{
+    position: absolute;
+  top: -500px;
+  right: -500px;
+  bottom: -500px;
+  left: -500px;
+  z-index: -1;
+  background: transparent url(https://youhavefoundconey.net/CG/what/assets/img/filmgrain.gif) 0 0;
+  background-size: 1000px;
+  opacity: 0.25;
+  overflow: hidden
+}
+
+.glitch-shape1{    
+  background-color: cyan;
+  position:absolute;
+  width: 100px;
+  height: 500px;
+  opacity: 0.85;
+  animation: 2s glitchshape1 steps(5, start) infinite forwards;
+}
+.glitch-shape2{    
+  background-color: rgb(0, 204, 51);
+  position:absolute;
+  width: 100px;
+  height: 500px;
+  opacity: 0.85;
+  animation: 2s glitchshape2 steps(5, start) infinite forwards reverse;
+}
+.glitch-shape3{    
+  background-color: cyan;
+  position:absolute;
+  width: 979px;
+  height: 24px;
+  opacity: 0.85;
+  animation: 1s glitchshape3 linear infinite forwards;
+}
+.glitch-shape4{    
+  background-color: blue;
+  position:absolute;
+  width: 2000px;
+  height: 40px;
+  transform:translate(-100px, 30px);
+}
+.glitch-shape5{    
+  background-color: black;
+  position:absolute;
+  width: 525px;
+  height: 92px;
+  transform:translate(20px, 500px);
+}
+
+@keyframes bgglitch {
+  0% 	{transform:translate(0px, 0px)}
+  100%	{transform:translate(-20px,20px)}
+}
+
+@keyframes logoglitch {
+  0% 		{width:590px;transform:translate(60px, 40px)}
+  49.999%	{width:590px;transform:translate(60px, 40px)}
+  50%		{width:300px;transform:translate(500px, 0px)}
+  54.999%	{width:300px;transform:translate(500px, 0px)}
+  55%		{width:590px;transform:translate(60px, 40px)}
+  94.999%	{width:590px;transform:translate(60px, 40px)}
+  95%		{width:300px;transform:translate(500px, 0px)}
+  99.999%	{width:300px;transform:translate(500px, 0px)}
+  100%		{width:590px;transform:translate(60px, 40px)}
+}
+
+@keyframes glitchshape1 {
+  0% 	{background-color:#70fdee; width:1000px;height:300px;transform:translate(690px, 49px)}
+  25%	{background-color: #cb3d24; width:540px;height:1049px;transform:translate(-355px, -1380px)}
+  50%	{background-color: #1abf35; width:68px;height:456px;transform:translate(880px, 936px)}
+  75%	{background-color: #f2952c; width:1078px;height:366px;transform:translate(314px, -330px)}
+  100%	{background-color: #3a9e8d; width:816px;height:1196px;transform:translate(-1020px,
+361px)}
+}
+
+@keyframes glitchshape2 {
+  0% 	{background-color: #5059ab; width:663px;height:1199px;transform:translate(489px,207px)}
+  25%	{background-color: #dc1b02; width:1220px;height:300px;transform:translate(-95px, 345px)}
+  50%	{background-color: #ef2556; width:723px;height:938px;transform:translate(1195px, 614px)}
+  75%	{background-color: #e3bcc0; width:1238px;height:508px;transform:translate(1200px, -106px)}
+  100%	{background-color: #f266a4; width:68px;height:456px;transform:translate(-20px, 669px)}
+}
+@keyframes glitchshape3 {
+  0% 	{transform:translate(900px, 800px)}
+  100%	{transform:translate(1000px,800px)}
+}
+
+.logoToGlitch {
+  width: 9rem;
+}
+
+.message-wrapper{
+    display: flex;
+    justify-content: flex-start;
+    align-items: end;
+    gap: 1rem;
+}
+
+.message-container{
+ background-color: #fff;
+    /* background: url(http://remote.co.com/UCA/assets/img/paperbackground.jpg); */
+    padding: 1.5rem;
+    color: black;
+    flex-grow: 1;
+   border-radius: 10px 10px 10px 0;
+    flex-grow:1
+  }
+
+.message-circle{
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: white;
+    border-radius: 50%;
+}
+/* //////// */
+
+input[type="text"] {
+  text-align: center;
+ 	color: black;
+	background-color: white;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+}
+input[type="text"]:hover {
+  text-align: center;
+	color: white;	
+  	background-color: black;
+}
+input[type="text"]:focus{
+  text-align: center;
+	color: white;	
+  	background-color: black;
+}
+
+.biginput input[type="text"] {
+  text-align: center;
+ 	color: #9900ff;
+  background-color: black;
+  font-size: 35px;
+}
+.biginput input[type="text"]:hover {
+  text-align: center;
+	color: black;	
+  	background-color: #9900ff;
+  font-size: 35px;
+}
+.biginput input[type="text"]:focus{
+  text-align: center;
+	color: #9900ff;	
+  	background-color: black;
+  font-size: 35px;
+}
+
+.center-fit { 
+    display: block;
+  height:auto; 
+  width:auto; 
+    margin-left: auto;
+  margin-right: auto;
+  max-height:100%;
+  max-width:90%;
+}
+
+.voice-text{
+  font-size: 30px;
+  text-align: center;
+}
+
+.normal button {
+   background-color: white;
+  color: black;
+  border: 2.5px solid black;
+	border-radius: 2px;
+}
+.normal button:hover{
+color: white;
+  background-color:black;
+}
+
+.psa button {
+   background-color: black;
+  color: white;
+  border: 2.5px solid white;
+	border-radius: 2px;
+}
+
+.psa button:hover{
+color: black;
+  background-color:white;
+}
+
+.frontButton button{
+   background-color: black;
+  color: #9900ff;
+  border: 2.5px solid #9900ff;
+	border-radius: 15px;
+}
+
+.frontButton button:hover{
+color: black;
+  background-color: #9900ff;
+}
+
+@keyframes bgfadein {
+  0% 	{ background-color: rgba(255, 255, 255, 0) }
+  100%	{ background-color: rgba(255, 255, 255, 1) }
+}
+
+@keyframes bgfadeout {
+  0% 	{ background-color: rgba(255, 255, 255, 1) }
+  100%	{ background-color: rgba(255, 255, 255, 0) }
+}
+
+.imgfadein{
+	animation: 6.5s imgfadein ease 1 forwards;
+}
+
+.imgfadeout{
+	animation: 6.5s imgfadeout ease 1 forwards;
+}
+
+.imgfadeinfast{
+	animation: 2s imgfadein ease 1 forwards;
+}
+
+.imgfadeoutfast{
+	animation: 2s imgfadeout ease 1 forwards;
+}
+
+.imgfadeinhalf{
+      position:absolute;
+  	top: 50%;
+   left: 50%;
+   width: 750px;
+   height: 750px;
+   margin-top: -375px; /* Half the height */
+   margin-left: -375px; /* Half the width */
+  filter: brightness(27%);
+   	z-index: -1;
+	animation: 2s imgfadeinhalf ease 1 both;
+}
+
+.imgfadeouthalf{
+      position:absolute;
+  	top: 50%;
+   left: 50%;
+   width: 750px;
+   height: 750px;
+   margin-top: -375px; /* Half the height */
+   margin-left: -375px; /* Half the width */
+  filter: brightness(100%);
+   	z-index: -1;
+	animation: 2s imgfadeouthalf ease 1 both;
+}
+
+
+@keyframes imgfadein {
+  0% 	{ opacity: 0; }
+  100%	{ opacity: 1; }
+}
+
+@keyframes imgfadeout {
+  0% 	{ opacity: 1; }
+  100%	{ opacity: 0; }
+}
+
+@keyframes imgfadeinhalf {
+  0% 	{ filter: brightness(27%); }
+  100%	{ filter: brightness(100%); }
+}
+@keyframes imgfadeouthalf {
+  0% 	{ filter: brightness(100%); }
+  100%	{ filter: brightness(27%); }
+}
+
+.delete-effect{
+animation: .8s delete infinite alternate;
+  animation-fill-mode: both;
+}
+
+@keyframes delete {
+  0% { transform: skewX(-15deg); filter:drop-shadow(-5px -20px 0px blue);}
+  10% { transform: skewY(-5deg); filter:drop-shadow(-10px 10px 0px lime);}
+  20% { transform: skewX(-15deg); filter:drop-shadow(8px 10px 0px red);}
+  30% { transform: skewY(10deg);filter:drop-shadow(-10px 10px 0px lime);}
+  40% { transform: skewX(-20deg); filter:drop-shadow(-5px -20px 0px blue);}
+  50% { transform: skewX(15deg); filter:drop-shadow(8px 10px 0px red);}
+  60% { transform: skewX(-15deg); filter:drop-shadow(-5px -20px 0px lime);}
+  70% { transform: skewY(-5deg); filter:drop-shadow(-10px 10px 0px blue);}
+  80% { transform: skewX(-15deg); filter:drop-shadow(8px 10px 0px red);}
+  90% { transform: skewY(10deg);filter:drop-shadow(-10px 10px 0px lime);}
+  100% { transform: skewX(15deg); filter:drop-shadow(8px 10px 0px red);}
+}
+
+.noise {
+  position: absolute;
+  top: -500px;
+  right: -500px;
+  bottom: -500px;
+  left: -500px;
+  z-index: 10;
+  background: transparent url(https://youhavefoundconey.net/CG/what/assets/img/noise.png) 0 0;
+  background-size: 320px 320px;
+	opacity: .75;
+	animation: noise 1s steps(8,end) infinite both;
+}
+
+@keyframes noise {
+  0% {
+    transform: translateX(0px,0px); }
+  10% {
+    transform: translate(-100px, 100px);
+  }
+  20% {
+    transform: translate(150px, -100px);
+  }
+  30% {
+    transform: translate(-100px,100px);
+  }
+  40% {
+    transform: translate(100px, -150px);
+  }
+  50% {
+    transform: translate(-100px, 200px);
+  }
+  60% {
+    transform: translate(-200px, -100px);
+  }
+  70% {
+    transform: translateY(50px, 100px);
+  }
+  80% {
+    transform: translate(100px, -150px);
+  }
+  90% {
+    transform: translate(0px, 200px);
+  }
+  100% {
+    transform: translate(-100px, 100px);
+  }
+}
+
+
+.clue{
+    font-style: italic;
+    font-size: 1.4rem;
+}
+
+#coderesult {
+    color: pink
+}
+
+
+#countdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #countdown > .secs {
+    font-family: var(--font-headings);
+    font-size: 7rem;
+    line-height: 5rem;
+  }
+  
+  #countdown > .extra {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.3rem;
+  }
+
+
+  header.timer{
+    position: fixed;
+    top:0;
+    left:0;
+    display: flex;
+    justify-content: end;
+    padding: 4rem;
+    background-color: black;
+    width: 100%;
+  }
+
+
+  .code-input.multibox > .multi-input-wrapper > input.macro-textbox,
+.code-input.multibox > .multi-input-wrapper > div > input.macro-textbox {
+  width: 7rem;
+  min-width: inherit;
+  color: black;
+  margin-inline-end: 1rem;
+  text-align: center;
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+
+.code-input.multibox > .multi-input-wrapper > input.macro-textbox:focus {
+  color: white;
+  text-align: center;
+  font-weight: 900;
+  font-size: 2.5rem;
+}
+
+.multi-input-wrapper {
+  display: flex;
+}
+
+
+main.timer{
+    margin-top: 15rem;
+}
