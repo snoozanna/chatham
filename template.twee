@@ -98,8 +98,18 @@ $(document.head).find('#style-ui-bar').remove();
 :: landing {"position":"425,75","size":"100,100"}
 <<include "header">>
 <main class="">
-<<button "Enter">><<goto "1">><</button>>
+<<button "Enter">><<goto "prepreglitch">><</button>>
  </main>
+
+:: prepreglitch
+<iframe id="iframeAudio" src="https://youhavefoundconey.net/CG/assets/audio/static.mp3" style="display:none" allow="autoplay" ></iframe>
+<div class="filmgrain"></div>
+<div class="glitch-shape1"></div>
+<div class="glitch-shape2"></div>
+<div class="glitch-shape3"></div>
+<<timed 12s>>
+<<goto "1">>
+<</timed>>
 
 :: preglitch
 <iframe id="iframeAudio" src="https://youhavefoundconey.net/CG/assets/audio/static.mp3" style="display:none" allow="autoplay" ></iframe>
@@ -134,7 +144,7 @@ $(document.head).find('#style-ui-bar').remove();
         <<replace "#coderesult">>CORRECT<</replace>>
            <<audio "correct" play>>
         <<replace ".clue">><</replace>>
-        <<timed 3s>><<goto "3">><</timed>>
+        <<timed 3s>><<goto "2">><</timed>>
         <</if>>
         /% CODEWORD INCORRECT %/
         <<if $codeword2 isnot "" and $codeword2 isnot "MINE">>
@@ -221,7 +231,7 @@ Find the Fiction Blue Book by David Cramer Smith for the title.
         <<replace "#coderesult">>CORRECT<</replace>>
            <<audio "correct" play>>
         <<replace ".clue">><</replace>>
-        <<timed 3s>><<goto "4">><</timed>>
+        <<timed 3s>><<goto "loading">><</timed>>
         <</if>>
         /% CODEWORD INCORRECT %/
         <<if $codeword3 isnot "" and $codeword3 isnot "132">>
@@ -244,32 +254,40 @@ To discover the frequency code turn to page 65 of this book.
 <p class="clue"> There is a 3 number code.</p>
 </main>
 
-:: loading
-<div id="mount"></div>
-<<timed 0.5s>>
-    <<replace "#mount">>
-    <<type 400ms>><h3>LOADING...</h3><</type>>
-    <</replace>><</timed>>
+:: loading [nobr]
+<main class="loading">
+  <div id="mount"></div>
+  <<timed 0.5s>>
+      <<replace "#mount">>
+      <<type 100ms>><h3>LOADING...</h3><</type>>
+      <</replace>><</timed>>
+  
+  <<timed 3s>>
+      <<replace "#mount">>
+      <<type 100ms>><h3>LOADING...</h3><</type>>
+      <</replace>><</timed>>
 
-<<timed 2s>>
-    <<replace "#mount">>
-    <<type 400ms>><h3>LOADING...</h3><</type>>
-    <</replace>><</timed>>
+ <<timed 5s>> <<replace "#mount">>
+      <</replace>><</timed>>
+  
+  <<timed 6s>>
+    <<addclass "body" "red">>
+    <</timed>>
+  
+  <<timed 8s>>
+      <<replace "#mount">>
+      <<type 100ms>><h3 class="bigger">FREQUENCY CODE ENTERED</h3><</type>>
+      <</replace>><</timed>>
+  
+  
+  <<timed 12s>>
+      <<replace "#mount">>
+      <<type 100ms>><h3 class="biggest">MINES ACTIVATED</h3><</type>>
+      <</replace>><</timed>>
+  
+</main>
 
-
-<<timed 4s>>
-    <<replace "#mount">>
-    <<type 400ms>><h3>FREQUENCY CODE ENTERED</h3><</type>>
-    <</replace>><</timed>>
-
-
-<<timed 6s>>
-    <<replace "#mount">>
-    <<type 400ms>><h3>MINES ACTIVATED</h3><</type>>
-    <</replace>><</timed>>
-
-
-<<timed 8s>> <<goto "preglitch">><</timed>>
+<<timed 14s>> <<goto "preglitch">><</timed>>
 
 
 
@@ -287,6 +305,7 @@ To discover the frequency code turn to page 65 of this book.
 <p>Head to the canons and enter the 2 numbers inscribed on the canons. </p>
 
 <<include "pw4">>
+
 
 </main>
 
