@@ -95,6 +95,7 @@ async function uploadImage(file) {
   formData.append('file', file);
   formData.append('upload_preset', uploadPreset);
 console.log("trying")
+errorMount.innerText = "Image uploading..."
   try {
     const response = await fetch(`${cloudinaryURL}`, {
       method: 'POST',
@@ -130,17 +131,32 @@ inputElement.addEventListener('change', (event) => {
 <<cacheaudio "tourescape" "https://youhavefoundconey.net/CG/what/assets/audio/tourescape.mp3">>
 <<cacheaudio "ping1" "../assets/sound/ping1.mp3">>
 <<cacheaudio "correct" "../assets/sound/keep2.mp3">>
-<<cacheaudio "uploading" "../assets/sound/uploading.mp3">>
+
 <<cacheaudio "complete" "../assets/sound/uploadcomplete.mp3">>
 <<waitforaudio>>
 
-:: header
+:: header [nobr]
 <header></header>
 
-:: header360women
-<header class="pano"><span>Look for the disguised women</span></header>
+:: header360women [nobr]
+<header class="pano"><span>
+<<switch $passage>>
+<<case "women360-1">>
+	Find the object 1
+<<case "women360-2">>
+		Find the object 2
+ <<case "women360-3">>
+ 	Find the object 3
+ <<case "women360-4">>
+		Find the object 4
+ <<case "women360-5">>
+	Find the object 5
+<<default>>
+	Find the object 1
+<</switch>>
+</span></header>
 
-:: header360elephant
+:: header360elephant[nobr]
 <header class="pano"><span>Find the elephant</span></header>
 
 :: headermessage [nobr]
@@ -192,7 +208,7 @@ inputElement.addEventListener('change', (event) => {
     <<goto $prevpass>>
     <</button>>
 </div></nav>
-  <<include "pw360women">></footer>
+  <<include "choose360womenPW">></footer>
 
 :: footer360elephant [nobr]
 
@@ -244,11 +260,13 @@ inputElement.addEventListener('change', (event) => {
 <<set $prevpass to "landing">>
 <<set $passage to "bookhealth1">>
 <<set $nextpass to "challenge1intro">>
+<audio src="assets/audio/monster1.mp3" autoplay>Audio not supported in your browser</audio>
 <main>
-  <div class="book-container pulse"><img src="assets/img/book1.png"></div>
+  <div class="book-container imgfadein "><img src="assets/img/book1.png" class="pulse"></div>
   <h2>BOOK HEALTH LEVEL 1</h2>
    <<button "Next">> <<goto $nextpass>><</button>>
 </main>
+
 
 :: challenge1intro
 <<set $prevpass to "bookhealth1">>
@@ -256,7 +274,8 @@ inputElement.addEventListener('change', (event) => {
 <<set $nextpass to "paddlesteamer1">>
 
 <main>
-  <p>Your first challenge</p>
+ <div class="book-container imgfadein "><img src="assets/img/hippo.png" class="pulse"></div>
+  <p>The Paddle Steamer - NO AUDIO</p>
    <<button "Next">> <<goto $nextpass>><</button>>
 </main>
 
@@ -266,9 +285,9 @@ inputElement.addEventListener('change', (event) => {
 <<set $prevpass to "bookhealth1">>
 <<set $passage to "paddlesteamer1">>
 <<set $nextpass to "paddlesteamer2">>
-
+<<include "header">>
 <main class="main-section">
-<p>The details are all distorted</p>
+<<type 60ms>><p>The details are all distorted</p>
 <p>We need to find the words</p>
 <p>The words to unlock the club</p>
 <p>The lifesaving club</p>
@@ -286,7 +305,7 @@ inputElement.addEventListener('change', (event) => {
         <<replace "#coderesult">>CORRECT<</replace>>
            <<audio "correct" play>>
         <<replace ".clue">><</replace>>
-        <<timed 3s>><<goto "2">><</timed>>
+        <<timed 3s>><<goto $nextpass>><</timed>>
         <</if>>
         /% CODEWORD INCORRECT %/
         <<if $codeword2 isnot "" and $codeword2 isnot "MINE">>
@@ -303,7 +322,7 @@ inputElement.addEventListener('change', (event) => {
    
 </div>
 </p>
-<p class="clue">Find the book by Michael Robothan ‘When you are….’ It is a Crime Thriller. </p>
+<p class="clue">Find the book by Michael Robothan ‘When you are….’ It is a Crime Thriller. </p><</type>>
 
 </main>
 <<include "footer">>
@@ -314,6 +333,7 @@ inputElement.addEventListener('change', (event) => {
 <<set $prevpass to "paddlesteamer1">>
 <<set $passage to "paddlesteamer2">>
 <<set $nextpass to "paddlesteamer3">>
+<<include "header">>
 <main class="main-section">
 <p>MINE Yes</p>
 <p>We need to protect the soldiers from the Mines</p>
@@ -361,6 +381,7 @@ Find the Fiction Blue Book by David Cramer Smith for the title.
 <<set $prevpass to "paddlesteamer2">>
 <<set $passage to "paddlesteamer3">>
 <<set $nextpass to "loading">>
+<<include "header">>
 <main class="main-section">
 <p>The Medway Queen.</p>
 <p>A Paddle Steamer.</p>
@@ -509,6 +530,7 @@ To discover the frequency code turn to page 65 of this book.
 <<set $prevpass to "paddlesteamer4">>
 <<set $passage to "paddlesteamer5">>
 <<set $nextpass to "bookhealth2">>
+<<include "header">>
 <main>
   <p>The mines have been swept</p>
   <p>The paddle steamer has saved the day</p>
@@ -590,6 +612,7 @@ To discover the frequency code turn to page 65 of this book.
 <<set $prevpass to "paddlesteamer5">>
 <<set $passage to "bookhealth2">>
 <<set $nextpass to "gpwomenintro">>
+<audio src="assets/audio/monster2.mp3" autoplay>Audio not supported in your browser</audio>
 <main>
   <div class="book-container pulse"><img src="assets/img/book2.png"></div>
   <h2>BOOK HEALTH LEVEL 2</h2>
@@ -600,7 +623,7 @@ To discover the frequency code turn to page 65 of this book.
 :: gpwomenintro [nobr]
 <<set $prevpass to "bookhealth1">>
 <<set $passage to "gpwomenintro">>
-<<set $nextpass to "women360">>
+<<set $nextpass to "women360-1">>
 
 <<include "headermessage">>
 <main class="main-section message">
@@ -631,26 +654,69 @@ To discover the frequency code turn to page 65 of this book.
 </main>
 <<include "footer">>
 
+:: challenge2intro
+<<set $prevpass to "bookhealth1">>
+<<set $passage to "challenge2intro">>
+<<set $nextpass to "women360-1">>
+/* <audio src="assets/audio/narwal.mp3" autoplay>Audio not supported in your browser</audio> */
+<main>
+ <div class="book-container imgfadein "><img src="assets/img/hippo.png" class="pulse"></div>
+  <p>Women in Disguise - NO AUDIO</p>
+   <<button "Next">> <<goto $nextpass>><</button>>
+</main>
 
-:: women360 [nobr]
+
+
+:: choose360iframe
+<<switch $passage>>
+<<case "women360-1">>
+	<iframe width="90%" height="500px" allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);" src="https://panoraven.com/en/embed/p3nwFwQz8L"></iframe>
+<<case "women360-2">>
+	<iframe width="90%" height="500px" allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);" src="https://panoraven.com/en/embed/p3nwFwQz8L"></iframe>
+ <<case "women360-3">>
+	<iframe width="90%" height="500px" allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);" src="https://panoraven.com/en/embed/p3nwFwQz8L"></iframe>
+ <<case "women360-4">>
+	<iframe width="90%" height="500px" allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);" src="https://panoraven.com/en/embed/p3nwFwQz8L"></iframe>
+ <<case "women360-5">>
+	<iframe width="90%" height="500px" allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);" src="https://panoraven.com/en/embed/p3nwFwQz8L"></iframe>
+<<default>>
+<iframe width="90%" height="500px" allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);" src="https://panoraven.com/en/embed/p3nwFwQz8L"></iframe>
+<</switch>>
+
+:: choose360womenPW [nobr]
+<<switch $passage>>
+<<case "women360-1">>
+	<<include "pw360women1">>
+<<case "women360-2">>
+	<<include "pw360women2">>
+ <<case "women360-3">>
+<<include "pw360women3">>
+ <<case "women360-4">>
+	<<include "pw360women4">>
+ <<case "women360-5">>
+<<include "pw360women4">>
+<<default>>
+<<include "pw360women1">>
+<</switch>>
+
+:: women360-1 [nobr]
 
 <<set $prevpass to "gpwomenintro">>
-<<set $passage to "women360">>
-<<set $nextpass to "gpnarwhalintro">>
+<<set $passage to "women360-1">>
+<<set $nextpass to "women360-2">>
 <<include "header360women">>
 	<main id="main" class="pano">
 	/* <<if $audioOn is true>><audio src="https://remote.co.com/MoTT/AgentTraining/assets/audio/Welcome1.mp3" autoplay>Audio not supported in your browser</audio><</if>> */
 
-<iframe width="90%" height="500px" allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);" src="https://panoraven.com/en/embed/p3nwFwQz8L"></iframe>
-
+<<include "choose360iframe">>
 
 	</main>
 	<<include "footer360women">>
 
-:: pw360women [nobr]
+:: pw360women1 [nobr]
 <div id="codewordWrapper" class="codeword-wrapper">
 
-    <label for="textbox--password" tabindex="0" ><span aria-label="Enter the word below" role="label">CODEWORD:</span></label>
+    <label for="textbox--password" tabindex="0" ><span aria-label="Enter the letter below" role="label">LETTER:</span></label>
 
     /% CODEWORD INPUT %/
       <div class="input-wrapper">
@@ -662,13 +728,13 @@ To discover the frequency code turn to page 65 of this book.
    /% STANDARDISE INPUT %/
        <<set _password to _password.toUpperCase()>>
    /% CODEWORD CORRECT %/
-       <<if _password isnot "" and _password is "WOMEN">>
+       <<if _password isnot "" and _password is "S">>
             <<audio "correct" play>>
        <<replace "#coderesult">><h2 class="">Correct!</h2><</replace>>
        <<timed 3s>><<goto $nextpass>><</timed>>
       <</if>>
         /% CODEWORD INCORRECT %/
-     <<if _password isnot "" and _password is not "WOMEN">>
+     <<if _password isnot "" and _password is not "S">>
         <<replace "#coderesult">><h2>Thats not right.</h2><</replace>>
       <<timed 1.5s>><<replace "#coderesult">><</replace>><</timed>>
         <</if>><</button>> 
@@ -681,10 +747,166 @@ To discover the frequency code turn to page 65 of this book.
 </div>
 
 
-:: gpnarwhalintro [nobr]
-<<set $prevpass to "women360">>
-<<set $passage to "gpnarwhalintro">>
-<<set $nextpass to "narwhalimage">>
+:: women360-2 [nobr]
+
+<<set $prevpass to "women360-1">>
+<<set $passage to "women360-2">>
+<<set $nextpass to "women360-3">>
+<<include "header360women">>
+	<main id="main" class="pano">
+	/* <<if $audioOn is true>><audio src="https://remote.co.com/MoTT/AgentTraining/assets/audio/Welcome1.mp3" autoplay>Audio not supported in your browser</audio><</if>> */
+
+<<include "choose360iframe">>
+
+	</main>
+	<<include "footer360women">>
+
+
+:: pw360women2 [nobr]
+<div id="codewordWrapper" class="codeword-wrapper">
+
+    <label for="textbox--password" tabindex="0" ><span aria-label="Enter the letter below" role="label">LETTER:</span></label>
+
+    /% CODEWORD INPUT %/
+      <div class="input-wrapper">
+     <div class="code-input pano">
+       <<textbox "_password" "" >>
+      </div>
+   <span class="button-wrapper" aria-label="Click Button to go Check your answer">
+     <<button "Enter">>  
+   /% STANDARDISE INPUT %/
+       <<set _password to _password.toUpperCase()>>
+   /% CODEWORD CORRECT %/
+       <<if _password isnot "" and _password is "N">>
+            <<audio "correct" play>>
+       <<replace "#coderesult">><h2 class="">Correct!</h2><</replace>>
+       <<timed 3s>><<goto $nextpass>><</timed>>
+      <</if>>
+        /% CODEWORD INCORRECT %/
+     <<if _password isnot "" and _password is not "N">>
+        <<replace "#coderesult">><h2>Thats not right.</h2><</replace>>
+      <<timed 1.5s>><<replace "#coderesult">><</replace>><</timed>>
+        <</if>><</button>> 
+     </span>
+
+   
+    /% CODEWORD FEEDBACK %/
+    </div>
+        <div id="coderesult"></div>
+</div>
+
+:: women360-3 [nobr]
+
+<<set $prevpass to "women360-2">>
+<<set $passage to "women360-3">>
+<<set $nextpass to "women360-4">>
+<<include "header360women">>
+	<main id="main" class="pano">
+	/* <<if $audioOn is true>><audio src="https://remote.co.com/MoTT/AgentTraining/assets/audio/Welcome1.mp3" autoplay>Audio not supported in your browser</audio><</if>> */
+
+<<include "choose360iframe">>
+
+	</main>
+	<<include "footer360women">>
+
+:: pw360women3 [nobr]
+<div id="codewordWrapper" class="codeword-wrapper">
+
+    <label for="textbox--password" tabindex="0" ><span aria-label="Enter the letter below" role="label">LETTER:</span></label>
+
+    /% CODEWORD INPUT %/
+      <div class="input-wrapper">
+     <div class="code-input pano">
+       <<textbox "_password" "" >>
+      </div>
+   <span class="button-wrapper" aria-label="Click Button to go Check your answer">
+     <<button "Enter">>  
+   /% STANDARDISE INPUT %/
+       <<set _password to _password.toUpperCase()>>
+   /% CODEWORD CORRECT %/
+       <<if _password isnot "" and _password is "E">>
+            <<audio "correct" play>>
+       <<replace "#coderesult">><h2 class="">Correct!</h2><</replace>>
+       <<timed 3s>><<goto $nextpass>><</timed>>
+      <</if>>
+        /% CODEWORD INCORRECT %/
+     <<if _password isnot "" and _password is not "E">>
+        <<replace "#coderesult">><h2>Thats not right.</h2><</replace>>
+      <<timed 1.5s>><<replace "#coderesult">><</replace>><</timed>>
+        <</if>><</button>> 
+     </span>
+
+   
+    /% CODEWORD FEEDBACK %/
+    </div>
+        <div id="coderesult"></div>
+</div>
+
+:: women360-4 [nobr]
+
+<<set $prevpass to "women360-3">>
+<<set $passage to "women360-4">>
+<<set $nextpass to "women360-5">>
+<<include "header360women">>
+	<main id="main" class="pano">
+	/* <<if $audioOn is true>><audio src="https://remote.co.com/MoTT/AgentTraining/assets/audio/Welcome1.mp3" autoplay>Audio not supported in your browser</audio><</if>> */
+
+<<include "choose360iframe">>
+
+	</main>
+	<<include "footer360women">>
+
+:: pw360women4 [nobr]
+<div id="codewordWrapper" class="codeword-wrapper">
+
+    <label for="textbox--password" tabindex="0" ><span aria-label="Enter the letter below" role="label">LETTER:</span></label>
+
+    /% CODEWORD INPUT %/
+      <div class="input-wrapper">
+     <div class="code-input pano">
+       <<textbox "_password" "" >>
+      </div>
+   <span class="button-wrapper" aria-label="Click Button to go Check your answer">
+     <<button "Enter">>  
+   /% STANDARDISE INPUT %/
+       <<set _password to _password.toUpperCase()>>
+   /% CODEWORD CORRECT %/
+       <<if _password isnot "" and _password is "L">>
+            <<audio "correct" play>>
+       <<replace "#coderesult">><h2 class="">Correct!</h2><</replace>>
+       <<timed 3s>><<goto $nextpass>><</timed>>
+      <</if>>
+        /% CODEWORD INCORRECT %/
+     <<if _password isnot "" and _password is not "L">>
+        <<replace "#coderesult">><h2>Thats not right.</h2><</replace>>
+      <<timed 1.5s>><<replace "#coderesult">><</replace>><</timed>>
+        <</if>><</button>> 
+     </span>
+
+   
+    /% CODEWORD FEEDBACK %/
+    </div>
+        <div id="coderesult"></div>
+</div>
+
+:: women360-5 [nobr]
+
+<<set $prevpass to "women360-4">>
+<<set $passage to "women360-5">>
+<<set $nextpass to "womenoutro">>
+<<include "header360women">>
+	<main id="main" class="pano">
+	/* <<if $audioOn is true>><audio src="https://remote.co.com/MoTT/AgentTraining/assets/audio/Welcome1.mp3" autoplay>Audio not supported in your browser</audio><</if>> */
+
+<<include "choose360iframe">>
+
+	</main>
+	<<include "footer360women">>
+
+:: womenoutro [nobr]
+<<set $prevpass to "women360-5">>
+<<set $passage to "womenoutro">>
+<<set $nextpass to "bookhealth3">>
 
 <<include "headermessage">>
 <main class="main-section message">
@@ -694,19 +916,73 @@ To discover the frequency code turn to page 65 of this book.
     <<audio "ping1" "play">>
     <<append "#msgMount">>
     <span class="sender">Granddad & Grandma</span>
-    <p>Next challenge</p>
+    <p>SNELL! THAT’S IT! Hannah Snell!</p>
     <</append>>
 <</timed>>
 
 <<timed 4s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
-    <p>The Narwhal Story </p>
+    <p>She was walking along the riverfront</p>
     <</append>>
 <</timed>>
 
-
 <<timed 6s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>Not long after that, she set sail to India on the HMS SWALLOW</p>
+    <</append>>
+<</timed>>
+
+<<timed 8s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>Although we didn't know she was a ‘she’ at the time.</p>
+    <</append>>
+<</timed>>
+
+<<timed 12s>>
+  <<audio "ping1" "play">>
+    <<replace "#msgMount">>
+    <p>But when she returned she was quite the celebrity</p>
+    <</replace>>
+<</timed>>
+
+<<timed 14s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>She fought in the Siege of Pondicherry and was shot 6 times</p>
+    <</append>>
+<</timed>>
+
+<<timed 16s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>She had to remove the bullets herself to avoid getting caught.</p>
+    <</append>>
+<</timed>>
+
+<<timed 20s>>
+  <<audio "ping1" "play">>
+    <<replace "#msgMount">>
+    <p>Thank you, my memories are coming back to me so much clearer now</p>
+    <</replace>>
+<</timed>>
+
+<<timed 22s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>The monster was trying to disguise Hannah’s name from me,</p>
+    <</append>>
+<</timed>>
+
+<<timed 24s>>
+  <<audio "ping1" "play">>
+    <<replace "#msgMount">>
+    <p>just like she disguised herself from everyone else.</p>
+    <</replace>>
+<</timed>>
+<<timed 26s>>
     <<append "#msgMount">>
   <<button "Next">> <<goto $nextpass>><</button>>
     <</append>>
@@ -715,10 +991,36 @@ To discover the frequency code turn to page 65 of this book.
 </main>
 <<include "footer">>
 
-:: narwhalimage [nobr]
-<<set $prevpass to "gpnarwhalintro">>
-<<set $pass to "narwhalimage">>
-<<set $nextpass to "gpelephantintro">>
+:: bookhealth3
+<<set $prevpass to "womenoutro">>
+<<set $passage to "bookhealth3">>
+<<set $nextpass to "narwhalstory">>
+<audio src="assets/audio/monster3.mp3" autoplay>Audio not supported in your browser</audio>
+<main>
+  <div class="book-container pulse"><img src="assets/img/book3.png"></div>
+  <h2>BOOK HEALTH LEVEL 3</h2>
+   <<button "Next">> <<goto $nextpass>><</button>>
+</main>
+
+
+:: narwhalstory [nobr]
+<<set $prevpass to "bookhealth3">>
+<<set $passage to "narwhalstory">>
+<<set $nextpass to "narwhalimageupload">>
+<audio src="assets/audio/narwal.mp3" autoplay>Audio not supported in your browser</audio>
+<main class="chapter-image">
+ <div class="book-container imgfadein "><img src="assets/img/hippo.png" class="wobble"></div>
+  <h2>The Narhwal</h2>
+  <<timed 40s>>
+   <<button "I'm ready">> <<goto $nextpass>><</button>>
+   <</timed>>
+</main>
+
+:: narwhalimageupload [nobr]
+<<set $prevpass to "narwhalstory">>
+<<set $pass to "narwhalimageupload">>
+<<set $nextpass to "bookhealth4">>
+<<include "header">>
  <main class="main-section">
 
 <h3>Find a spot out to the river</h3>
@@ -747,9 +1049,33 @@ To discover the frequency code turn to page 65 of this book.
   <<button "I've uploaded my image">> <<goto $nextpass>><</button>>
     <</append>><</timed>>
 
+:: bookhealth4
+<<set $prevpass to "narwhalimageupload">>
+<<set $passage to "bookhealth4">>
+<<set $nextpass to "elephantstory">>
+<audio src="assets/audio/monster4.mp3" autoplay>Audio not supported in your browser</audio>
+<main>
+  <div class="book-container pulse"><img src="assets/img/book3.png"></div>
+  <h2>BOOK HEALTH LEVEL 4</h2>
+   <<button "Next">> <<goto $nextpass>><</button>>
+</main>
+
+:: elephantstory [nobr]
+<<set $prevpass to "bookhealth4">>
+<<set $passage to "elephantstory">>
+<<set $nextpass to "gpelephantintro">>
+<audio src="assets/audio/elephant.mp3" autoplay>Audio not supported in your browser</audio>
+<main class="chapter-image">
+ <div class="book-container imgfadein "><img src="assets/img/hippo.png" class="wobble"></div>
+  <h2>The Chatham Elephant</h2>
+  <<timed 40s>>
+   <<button "I'm ready">> <<goto $nextpass>><</button>>
+   <</timed>>
+</main>
+<<include "footer">>
 
 :: gpelephantintro [nobr]
-<<set $prevpass to "narwhalimage">>
+<<set $prevpass to "narwhalimageupload">>
 <<set $passage to "gpelephantintro">>
 <<set $nextpass to "elephant360">>
 
@@ -781,6 +1107,8 @@ To discover the frequency code turn to page 65 of this book.
 
 </main>
 <<include "footer">>
+
+
 
 
 :: elephant360 [nobr]
@@ -831,9 +1159,34 @@ To discover the frequency code turn to page 65 of this book.
         <div id="elecoderesult"></div>
 </div>
 
+:: bookhealth5
+<<set $prevpass to "elephant360">>
+<<set $passage to "bookhealth5">>
+<<set $nextpass to "gpelephantintro">>
+<audio src="assets/audio/monster5.mp3" autoplay>Audio not supported in your browser</audio>
+<main>
+  <div class="book-container pulse"><img src="assets/img/book3.png"></div>
+  <h2>BOOK HEALTH LEVEL 5</h2>
+   <<button "Next">> <<goto $nextpass>><</button>>
+</main>
+
+:: lionstory [nobr]
+<<set $prevpass to "bookhealth4">>
+<<set $passage to "lionstory">>
+<<set $nextpass to "gplionintro">>
+<audio src="assets/audio/lion.mp3" autoplay>Audio not supported in your browser</audio>
+<main class="chapter-image">
+ <div class="book-container imgfadein "><img src="assets/img/hippo.png" class="wobble"></div>
+  <h2>The Lion Queen</h2>
+  <<timed 40s>>
+   <<button "I'm ready">> <<goto $nextpass>><</button>>
+   <</timed>>
+</main>
+<<include "footer">>
+
 
 :: gplionintro [nobr]
-<<set $prevpass to "elephant360">>
+<<set $prevpass to "lionstory">>
 <<set $passage to "gplionintro">>
 <<set $nextpass to "gpmap">>
 
