@@ -83,6 +83,48 @@ $(document.head).find('#style-ui-bar').remove();
     };
 }();
 
+setup.handleFileUpload = () => {
+
+async function uploadImage(file) {
+    const uploadPreset = 'f4uwtwnx';
+    const cloudinaryURL = 'https://api.cloudinary.com/v1_1/dzutg2kf2/image/upload';
+    const errorMount = document.getElementById("error")
+    const successMount = document.getElementById("success")
+  
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('upload_preset', uploadPreset);
+console.log("trying")
+  try {
+    const response = await fetch(`${cloudinaryURL}`, {
+      method: 'POST',
+      body: formData
+    });
+    if (!response.ok) {
+      throw new Error('Image upload failed');
+ errorMount.innerText = "Image upload failed"
+      
+    }
+
+    const data = await response.json();
+    console.log('Image uploaded successfully:', data);
+    errorMount.innerText = "Image uploaded"
+  } catch (error) {
+    console.error('Error uploading image:', error.message);
+    errorMount.innerText = "Image upload failed"
+  }
+}
+// Example usage
+const inputElement = document.getElementById('inputImg');
+console.log(inputElement)
+inputElement.addEventListener('change', (event) => {
+  const file = event.target.files[0];
+  uploadImage(file);
+});
+  inputElement.click();
+};
+
+
 :: StoryInit
 <<cacheaudio "badjoke" "https://youhavefoundconey.net/CG/what/assets/audio/badjoke.mp3">>
 <<cacheaudio "tourescape" "https://youhavefoundconey.net/CG/what/assets/audio/tourescape.mp3">>
@@ -95,10 +137,23 @@ $(document.head).find('#style-ui-bar').remove();
 :: header
 <header></header>
 
+:: header360women
+<header class="pano"><span>Look for the disguised women</span></header>
+
+:: header360elephant
+<header class="pano"><span>Find the elephant</span></header>
+
+:: headermessage [nobr]
+<header><h3>Incoming message</h3></header>
+
+
 :: landing {"position":"425,75","size":"100,100"}
+<<set $prevpass to "landing">>
+<<set $passage to "landing">>
+<<set $nextpass to "gp1">>
 <<include "header">>
 <main class="">
-<<button "Enter">><<goto "prepreglitch">><</button>>
+<<button "Enter">><<goto "gp1">><</button>>
  </main>
 
 :: prepreglitch
@@ -107,8 +162,8 @@ $(document.head).find('#style-ui-bar').remove();
 <div class="glitch-shape1"></div>
 <div class="glitch-shape2"></div>
 <div class="glitch-shape3"></div>
-<<timed 12s>>
-<<goto "1">>
+<<timed 6s>>
+<<goto "paddlesteamer1">>
 <</timed>>
 
 :: preglitch
@@ -118,13 +173,100 @@ $(document.head).find('#style-ui-bar').remove();
 <div class="glitch-shape2"></div>
 <div class="glitch-shape3"></div>
 <<timed 8s>>
-<<goto "4">>
+<<goto "paddlesteamer4">>
 <</timed>>
 
 
+:: footer [nobr]
+<footer>
+ <<button "<--">> <<goto $prevpass>><</button>>
+   <<button "Start">> <<goto "landing">><</button>>
+  <<button "-->">> <<goto $nextpass>><</button>>
+ </footer>
 
-/* :: 1  [t8n.typewriter-4 nobr ]{"position":"425,200","size":"100,100"}  */
-:: 1  [t8n.typewriter-4 nobr ]{"position":"425,200","size":"100,100"} 
+:: footer360women [nobr]
+
+<footer class="pano">
+<nav class=""><div id="back" class="button-wrapper">
+  <<button "Back">> 
+    <<goto $prevpass>>
+    <</button>>
+</div></nav>
+  <<include "pw360women">></footer>
+
+:: footer360elephant [nobr]
+
+<footer class="pano">
+<nav class=""><div id="back" class="button-wrapper">
+  <<button "Back">> 
+    <<goto $prevpass>>
+    <</button>>
+</div></nav>
+  <<include "pw360elephant">></footer>
+
+
+/* GRANPARENTS TALKING  */
+:: gp1 [nobr]
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+<<timed 2s>>
+    <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <span class="sender">Granddad & Grandma</span>
+    <p>Stories need to be shared</p>
+    <</append>>
+<</timed>>
+
+<<timed 4s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p> History needs to be told. </p>
+    <</append>>
+<</timed>>
+
+<<timed 6s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p class="final">Solve the clues </p>
+    <</append>>
+<</timed>>
+<<timed 10s>>
+    <<append "#msgMount">>
+  <<button "Next">> <<goto "bookhealth1">><</button>>
+    <</append>>
+<</timed>>
+
+</main>
+
+:: bookhealth1
+<<set $prevpass to "landing">>
+<<set $passage to "bookhealth1">>
+<<set $nextpass to "challenge1intro">>
+<main>
+  <div class="book-container pulse"><img src="assets/img/book1.png"></div>
+  <h2>BOOK HEALTH LEVEL 1</h2>
+   <<button "Next">> <<goto $nextpass>><</button>>
+</main>
+
+:: challenge1intro
+<<set $prevpass to "bookhealth1">>
+<<set $passage to "challenge1intro">>
+<<set $nextpass to "paddlesteamer1">>
+
+<main>
+  <p>Your first challenge</p>
+   <<button "Next">> <<goto $nextpass>><</button>>
+</main>
+
+
+/* PADDLE STEAMER CHALLENGE  */
+:: paddlesteamer1  [ nobr]{"position":"425,200","size":"100,100"} 
+<<set $prevpass to "bookhealth1">>
+<<set $passage to "paddlesteamer1">>
+<<set $nextpass to "paddlesteamer2">>
+
 <main class="main-section">
 <p>The details are all distorted</p>
 <p>We need to find the words</p>
@@ -132,7 +274,7 @@ $(document.head).find('#style-ui-bar').remove();
 <p>The lifesaving club</p>
 <p>We need to search to make this place safe</p>
 <p>We need to protect the soldiers from the
-<div class="css-input code-input codeword1-input">
+<div class="css-input code-input codeword-input">
     <<textbox "$codeword2" "">>
      <<button "Enter">>
       /% PASSWORD CODE %/
@@ -164,16 +306,20 @@ $(document.head).find('#style-ui-bar').remove();
 <p class="clue">Find the book by Michael Robothan ‘When you are….’ It is a Crime Thriller. </p>
 
 </main>
+<<include "footer">>
 
 
 
-:: 2  [t8n.typewriter-4 nobr ]{"position":"425,200","size":"100,100"} 
+:: paddlesteamer2  [nobr ]{"position":"425,200","size":"100,100"} 
+<<set $prevpass to "paddlesteamer1">>
+<<set $passage to "paddlesteamer2">>
+<<set $nextpass to "paddlesteamer3">>
 <main class="main-section">
 <p>MINE Yes</p>
 <p>We need to protect the soldiers from the Mines</p>
 <p>We’ll use the Paddle Steamer nearby</p>
 <p>A paddleboat called the  </p>
-<div class="css-input code-input codeword1-input">
+<div class="css-input code-input codeword-input">
     <<textbox "$codeword2" "">>
      <<button "Enter">>
       /% PASSWORD CODE %/
@@ -185,7 +331,7 @@ $(document.head).find('#style-ui-bar').remove();
         <<replace "#coderesult">>CORRECT<</replace>>
            <<audio "correct" play>>
         <<replace ".clue">><</replace>>
-        <<timed 3s>><<goto "3">><</timed>>
+        <<timed 3s>><<goto $nextpass>><</timed>>
         <</if>>
         /% CODEWORD INCORRECT %/
         <<if $codeword2 isnot "" and $codeword2 isnot "MEDWAY">>
@@ -207,11 +353,14 @@ $(document.head).find('#style-ui-bar').remove();
 Find the Fiction Blue Book by David Cramer Smith for the title.
 </p>
 </main>
+<<include "footer">>
 
 
 
-
-::  3  [t8n.typewriter-4 nobr]{"position":"425,450","size":"100,100"}
+:: paddlesteamer3  [nobr]{"position":"425,450","size":"100,100"}
+<<set $prevpass to "paddlesteamer2">>
+<<set $passage to "paddlesteamer3">>
+<<set $nextpass to "loading">>
 <main class="main-section">
 <p>The Medway Queen.</p>
 <p>A Paddle Steamer.</p>
@@ -219,7 +368,7 @@ Find the Fiction Blue Book by David Cramer Smith for the title.
 <p>The ability to sweep for mines.</p>
 <p>And save lives.</p>
 <p>But we need to find the frequency code that will defuse the mines.  </p>
-<div class="css-input code-input codeword1-input">
+<div class="css-input code-input codeword-input">
     <<textbox "$codeword3" "">>
      <<button "Enter">>
       /% PASSWORD CODE %/
@@ -231,7 +380,7 @@ Find the Fiction Blue Book by David Cramer Smith for the title.
         <<replace "#coderesult">>CORRECT<</replace>>
            <<audio "correct" play>>
         <<replace ".clue">><</replace>>
-        <<timed 3s>><<goto "loading">><</timed>>
+        <<timed 3s>><<goto $nextpass>><</timed>>
         <</if>>
         /% CODEWORD INCORRECT %/
         <<if $codeword3 isnot "" and $codeword3 isnot "132">>
@@ -253,8 +402,11 @@ To discover the frequency code turn to page 65 of this book.
  </p>
 <p class="clue"> There is a 3 number code.</p>
 </main>
-
+<<include "footer">>
 :: loading [nobr]
+<<set $prevpass to "paddlesteamer3">>
+<<set $passage to "loading">>
+<<set $nextpass to "paddlesteamer4">>
 <main class="loading">
   <div id="mount"></div>
   <<timed 0.5s>>
@@ -294,7 +446,10 @@ To discover the frequency code turn to page 65 of this book.
 
 
 
-::  4  [t8n.typewriter-4 nobr]{"position":"425,450","size":"100,100"}
+:: paddlesteamer4  [nobr]{"position":"425,450","size":"100,100"}
+<<set $prevpass to "loading">>
+<<set $passage to "paddlesteamer4">>
+<<set $nextpass to "paddlesteamer5">>
 <header class="timer">
   <<include "timer">>
 </header>
@@ -305,10 +460,8 @@ To discover the frequency code turn to page 65 of this book.
 <p>Head to the canons and enter the 2 numbers inscribed on the canons. </p>
 
 <<include "pw4">>
-
-
 </main>
-
+<<include "footer">>
 
 :: pw4 [nobr]
 
@@ -352,7 +505,10 @@ To discover the frequency code turn to page 65 of this book.
 </div>
 </div>
 
-:: 5  [t8n.typewriter-4 nobr]
+:: paddlesteamer5  [nobr]{"position":"425,450","size":"100,100"}
+<<set $prevpass to "paddlesteamer4">>
+<<set $passage to "paddlesteamer5">>
+<<set $nextpass to "bookhealth2">>
 <main>
   <p>The mines have been swept</p>
   <p>The paddle steamer has saved the day</p>
@@ -360,8 +516,9 @@ To discover the frequency code turn to page 65 of this book.
   <p>A club for all to dance the night away. </p>
   <p>THE LIFESAVING CLUB</p>
   <br/><br/>
-  <<button "Start again">> <<goto "landing">> <</button>>
+  <<button "Next">> <<goto $nextpass>> <</button>>
 </main>
+<<include "footer">>
 
 :: timer [nobr]
 <<set $seconds to 60>>
@@ -385,11 +542,28 @@ To discover the frequency code turn to page 65 of this book.
 <</silently>>
 
 
+:: timermap [nobr]
+<<set $seconds to 10>>
+<span id="countdown" class="timermap"><span class="secs">$seconds</span> <span class="extra">seconds</span></span>
+
+
+<<silently>>
+	<<repeat 1s>>
+		<<set $seconds to $seconds - 1>>
+		<<if $seconds gt 0>>
+			<<replace "#countdown">><span class="secs">$seconds</span> <span class="extra">seconds</span><</replace>>
+		<<else>>
+			<<replace "#countdown">><<include "begone" >><</replace>>
+  
+			<<stop>>
+		<</if>>
+	<</repeat>>
+<</silently>>
+
+
 
 :: notime [nobr]
-
 <main> 
-
    <div id="textMount"></div>
    <<timed 0.5s>> 
   <<replace "#textMount">>
@@ -405,11 +579,469 @@ To discover the frequency code turn to page 65 of this book.
 
 <<timed 4s>> 
   <<append "#textMount">>
-     <<button "Yes">><<goto "4">><</button>>
+     <<button "Yes">><<goto "paddlesteamer4">><</button>>
      <br/><br/>
 
   <</append>>
 <</timed>>
+</main>
 
+:: bookhealth2
+<<set $prevpass to "paddlesteamer5">>
+<<set $passage to "bookhealth2">>
+<<set $nextpass to "gpwomenintro">>
+<main>
+  <div class="book-container pulse"><img src="assets/img/book2.png"></div>
+  <h2>BOOK HEALTH LEVEL 2</h2>
+   <<button "Next">> <<goto $nextpass>><</button>>
+</main>
+
+
+:: gpwomenintro [nobr]
+<<set $prevpass to "bookhealth1">>
+<<set $passage to "gpwomenintro">>
+<<set $nextpass to "women360">>
+
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+<<timed 2s>>
+    <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <span class="sender">Granddad & Grandma</span>
+    <p>Next challenge</p>
+    <</append>>
+<</timed>>
+
+<<timed 4s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p> Women in Disguise </p>
+    <</append>>
+<</timed>>
+
+
+<<timed 6s>>
+    <<append "#msgMount">>
+  <<button "Next">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
 
 </main>
+<<include "footer">>
+
+
+:: women360 [nobr]
+
+<<set $prevpass to "gpwomenintro">>
+<<set $passage to "women360">>
+<<set $nextpass to "gpnarwhalintro">>
+<<include "header360women">>
+	<main id="main" class="pano">
+	/* <<if $audioOn is true>><audio src="https://remote.co.com/MoTT/AgentTraining/assets/audio/Welcome1.mp3" autoplay>Audio not supported in your browser</audio><</if>> */
+
+<iframe width="90%" height="500px" allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);" src="https://panoraven.com/en/embed/p3nwFwQz8L"></iframe>
+
+
+	</main>
+	<<include "footer360women">>
+
+:: pw360women [nobr]
+<div id="codewordWrapper" class="codeword-wrapper">
+
+    <label for="textbox--password" tabindex="0" ><span aria-label="Enter the word below" role="label">CODEWORD:</span></label>
+
+    /% CODEWORD INPUT %/
+      <div class="input-wrapper">
+     <div class="code-input pano">
+       <<textbox "_password" "" >>
+      </div>
+   <span class="button-wrapper" aria-label="Click Button to go Check your answer">
+     <<button "Enter">>  
+   /% STANDARDISE INPUT %/
+       <<set _password to _password.toUpperCase()>>
+   /% CODEWORD CORRECT %/
+       <<if _password isnot "" and _password is "WOMEN">>
+            <<audio "correct" play>>
+       <<replace "#coderesult">><h2 class="">Correct!</h2><</replace>>
+       <<timed 3s>><<goto $nextpass>><</timed>>
+      <</if>>
+        /% CODEWORD INCORRECT %/
+     <<if _password isnot "" and _password is not "WOMEN">>
+        <<replace "#coderesult">><h2>Thats not right.</h2><</replace>>
+      <<timed 1.5s>><<replace "#coderesult">><</replace>><</timed>>
+        <</if>><</button>> 
+     </span>
+
+   
+    /% CODEWORD FEEDBACK %/
+    </div>
+        <div id="coderesult"></div>
+</div>
+
+
+:: gpnarwhalintro [nobr]
+<<set $prevpass to "women360">>
+<<set $passage to "gpnarwhalintro">>
+<<set $nextpass to "narwhalimage">>
+
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+<<timed 2s>>
+    <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <span class="sender">Granddad & Grandma</span>
+    <p>Next challenge</p>
+    <</append>>
+<</timed>>
+
+<<timed 4s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>The Narwhal Story </p>
+    <</append>>
+<</timed>>
+
+
+<<timed 6s>>
+    <<append "#msgMount">>
+  <<button "Next">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
+
+</main>
+<<include "footer">>
+
+:: narwhalimage [nobr]
+<<set $prevpass to "gpnarwhalintro">>
+<<set $pass to "narwhalimage">>
+<<set $nextpass to "gpelephantintro">>
+ <main class="main-section">
+
+<h3>Find a spot out to the river</h3>
+<br>
+<p>Upload an image of something interesting </p>
+<br>
+<input type="file" accept="image/*" capture="camera" id="inputImg" class="hide">
+<br>
+  <br>
+<div id="success">
+<<button "Upload Image">>
+  <<set $e to setup.handleFileUpload()>><</button>>
+</div>
+  <br>
+  <br>
+  <div id="error"></div>
+
+</main> 
+<<include "footerupload">>
+
+:: footerupload [nobr]
+<footer id="footerField"><<button "Back">><<goto $prevpass>><</button>>
+</footer>
+<<timed 12s>>
+    <<append "#footerField">>
+  <<button "I've uploaded my image">> <<goto $nextpass>><</button>>
+    <</append>><</timed>>
+
+
+:: gpelephantintro [nobr]
+<<set $prevpass to "narwhalimage">>
+<<set $passage to "gpelephantintro">>
+<<set $nextpass to "elephant360">>
+
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+<<timed 2s>>
+    <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <span class="sender">Granddad & Grandma</span>
+    <p>Next challenge</p>
+    <</append>>
+<</timed>>
+
+<<timed 4s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>Find the Elephant </p>
+    <</append>>
+<</timed>>
+
+
+<<timed 6s>>
+    <<append "#msgMount">>
+  <<button "Next">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
+
+</main>
+<<include "footer">>
+
+
+:: elephant360 [nobr]
+
+<<set $prevpass to "gpelephantintro">>
+<<set $passage to "elephant360">>
+<<set $nextpass to "gplionintro">>
+<<include "header360elephant">>
+	<main id="main" class="pano">
+	/* <<if $audioOn is true>><audio src="https://remote.co.com/MoTT/AgentTraining/assets/audio/Welcome1.mp3" autoplay>Audio not supported in your browser</audio><</if>> */
+
+<iframe width="90%" height="500px" allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);" src="https://panoraven.com/en/embed/p3nwFwQz8L"></iframe>
+
+
+	</main>
+	<<include "footer360elephant">>
+
+:: pw360elephant [nobr]
+<div id="codewordWrapper" class="codeword-wrapper">
+
+    <label for="textbox--password" tabindex="0" ><span aria-label="Enter the word below" role="label">CODEWORD:</span></label>
+
+    /% CODEWORD INPUT %/
+      <div class="input-wrapper">
+     <div class="code-input pano">
+       <<textbox "_password" "" >>
+      </div>
+   <span class="button-wrapper" aria-label="Click Button to go Check your answer">
+     <<button "Enter">>  
+   /% STANDARDISE INPUT %/
+       <<set _password to _password.toUpperCase()>>
+   /% CODEWORD CORRECT %/
+       <<if _password isnot "" and _password is "ELEPHANT">>
+            <<audio "correct" play>>
+       <<replace "#elecoderesult">><h2 class="">Correct!</h2><</replace>>
+       <<timed 3s>><<goto $nextpass>><</timed>>
+      <</if>>
+        /% CODEWORD INCORRECT %/
+     <<if _password isnot "" and _password isnot "ELEPHANT">>
+        <<replace "#elecoderesult">><h2>Thats not right.</h2><</replace>>
+      <<timed 1.5s>><<replace "#elecoderesult">><</replace>><</timed>>
+        <</if>><</button>> 
+     </span>
+
+   
+    /% CODEWORD FEEDBACK %/
+    </div>
+        <div id="elecoderesult"></div>
+</div>
+
+
+:: gplionintro [nobr]
+<<set $prevpass to "elephant360">>
+<<set $passage to "gplionintro">>
+<<set $nextpass to "gpmap">>
+
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+<<timed 2s>>
+    <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <span class="sender">Granddad & Grandma</span>
+    <p>Next challenge</p>
+    <</append>>
+<</timed>>
+
+<<timed 4s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>Go to the map</p>
+    <</append>>
+<</timed>>
+
+
+<<timed 6s>>
+    <<append "#msgMount">>
+  <<button "Next">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
+
+</main>
+<<include "footer">>
+
+
+:: gpmap [nobr]
+<<set $prevpass to "gplionintro">>
+<<set $passage to "gpmap">>
+<<set $nextpass to "gpmap2">>
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+<<timed 2s>>
+    <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <span class="sender">Granddad & Grandma</span>
+    <p>We’ve made it - the chapters have been restored</p>
+    <</append>>
+<</timed>>
+
+<<timed 4s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>The monster is back tracking</p>
+    <</append>>
+<</timed>>
+
+<<timed 6s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p class="final">We have nearly saved the book </p>
+    <</append>>
+<</timed>>
+<<timed 8s>>
+    <<append "#msgMount">>
+  <<button "Next">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
+
+</main>
+<<include "footer">>
+
+
+:: gpmap2 [nobr]
+<<set $prevpass to "gpmap">>
+<<set $passage to "gpmap2">>
+<<set $nextpass to "gpmap3">>
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+<<timed 2s>>
+    <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <span class="sender">Granddad & Grandma</span>
+    <p>Now we need to get rid of the monster</p>
+    <</append>>
+<</timed>>
+
+<<timed 4s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>We need to do it now.</p>
+    <</append>>
+<</timed>>
+
+<<timed 6s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>There is a ritual - that will get rid of the monster</p>
+    <</append>>
+<</timed>>
+
+<<timed 8s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p class="final">And now you can do it</p>
+    <</append>>
+<</timed>>
+<<timed 10s>>
+    <<append "#msgMount">>
+  <<button "Next">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
+
+</main>
+<<include "footer">>
+
+:: gpmap3 [nobr]
+<<set $prevpass to "gpmap2">>
+<<set $passage to "gpmap3">>
+<<set $nextpass to "gpmap3">>
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+<<timed 2s>>
+    <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <span class="sender">Granddad & Grandma</span>
+    <p>I need you to be brave - like the Lion Queen</p>
+    <</append>>
+<</timed>>
+
+<<timed 4s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>I need you to place your phone on the map and get your hands on the map. </p>
+    <</append>>
+<</timed>>
+
+<<timed 6s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>We need to make the monster go. </p>
+    <</append>>
+<</timed>>
+
+<<timed 6s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p class="final">For good. </p>
+    <</append>>
+<</timed>>
+<<timed 8s>>
+    <<append "#msgMount">>
+<<button "Next">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
+
+</main>
+<<include "footer">>
+
+
+:: gpmap3 [nobr]
+<<set $prevpass to "gpmap2">>
+<<set $passage to "gpmap3">>
+<<set $nextpass to "mapchallenge">>
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+<<timed 1s>>
+    <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <span class="sender">Granddad & Grandma</span>
+    <p>When the countdown happens you will shout </p>
+    <</append>>
+<</timed>>
+
+<<timed 4s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p class="final">BE GONE OOGERLY BOOGERLY  </p>
+    <</append>>
+<</timed>>
+<<timed 6s>>
+    <<append "#msgMount">>
+<<button "Next">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
+
+</main>
+<<include "footer">>
+
+:: mapchallenge  [nobr]{"position":"425,450","size":"100,100"}
+<<set $prevpass to "gpmap3">>
+<<set $passage to "mapchallenge">>
+<<set $nextpass to "end">>
+<header >
+</header>
+<main class="timermap">
+  <<include "timermap">>
+</main>
+<<include "footer">>
+
+:: begone
+<div class="motto-container"><span>BE GONE OOGERLY BOOGERLY</span></div>
+
+
+:: end
+<div class="motto-container"><span>END</span></div>
