@@ -179,7 +179,7 @@ Find the object that is being blocked by the Book Monsters fog. Type the FIRST L
 <<audio ":all" stop>>
 <<include "header">>
 <main class="">
-<<button "Enter">><<goto "gp1">><</button>>
+<<button "Start">><<goto "gp1">><</button>>
  </main>
 
 :: prepreglitch
@@ -331,7 +331,7 @@ Find the object that is being blocked by the Book Monsters fog. Type the FIRST L
 <<set $prevpass to "gp1a">>
 <<set $passage to "librarian">>
 <<set $nextpass to "gp1b">>
-    <<audio "monster" loop play>>
+  
 <<include "header">>
   <main>
 
