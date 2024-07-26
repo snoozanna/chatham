@@ -695,6 +695,7 @@ The first letter of each landmark spells a name
 &lt;&lt;set $nextpass to &quot;paddlesteamer3&quot;&gt;&gt;
 &lt;&lt;include &quot;header&quot;&gt;&gt;
 &lt;main class=&quot;main-section&quot;&gt;
+&lt;&lt;type 60ms&gt;&gt;
 &lt;p&gt;MINE Yes&lt;/p&gt;
 &lt;p&gt;We need to protect the soldiers from the Mines&lt;/p&gt;
 &lt;p&gt;We’ll use the Paddle Steamer nearby&lt;/p&gt;
@@ -732,12 +733,14 @@ Queen
 &lt;p class=&quot;clue&quot;&gt;
 Find the Fiction Blue Book by David Cramer Smith for the title.
 &lt;/p&gt;
+&lt;&lt;/type&gt;&gt;
 &lt;/main&gt;
 &lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="paddlesteamer3" tags="nobr" position="425,450" size="100,100">&lt;&lt;set $prevpass to &quot;paddlesteamer2&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;paddlesteamer3&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;loading&quot;&gt;&gt;
 &lt;&lt;include &quot;header&quot;&gt;&gt;
 &lt;main class=&quot;main-section&quot;&gt;
+&lt;&lt;type 60ms&gt;&gt;
 &lt;p&gt;The Medway Queen.&lt;/p&gt;
 &lt;p&gt;A Paddle Steamer.&lt;/p&gt;
 &lt;p&gt;With a twist&lt;/p&gt;
@@ -777,6 +780,7 @@ Find the Fiction Blue Book by David Cramer Smith for the title.
 To discover the frequency code turn to page 65 of this book. 
  &lt;/p&gt;
 &lt;p class=&quot;clue&quot;&gt; There is a 3 number code.&lt;/p&gt;
+&lt;&lt;/type&gt;&gt;
 &lt;/main&gt;
 &lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="loading" tags="nobr" position="725,350" size="100,100">&lt;&lt;set $prevpass to &quot;paddlesteamer3&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;loading&quot;&gt;&gt;
@@ -820,12 +824,14 @@ To discover the frequency code turn to page 65 of this book.
   &lt;&lt;include &quot;timer&quot;&gt;&gt;
 &lt;/header&gt;
 &lt;main class=&quot;main-section timer&quot;&gt;
+
 &lt;p&gt;The frequency code has triggered the autodestruct. &lt;/p&gt;
 &lt;p&gt;There are 90 seconds to override them. &lt;/p&gt;
 &lt;p&gt;The explosives are in the cannons in front of the library. &lt;/p&gt;
 &lt;p&gt;Head to the canons and enter the 2 numbers inscribed on the canons. &lt;/p&gt;
 
 &lt;&lt;include &quot;pw4&quot;&gt;&gt;
+
 &lt;/main&gt;
 &lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="pw4" tags="nobr" position="975,350" size="100,100">&lt;div id=&quot;resultbutton&quot;&gt;
   /% CODEWORD INPUT %/
@@ -870,6 +876,7 @@ To discover the frequency code turn to page 65 of this book.
 &lt;&lt;set $nextpass to &quot;paddleoutro&quot;&gt;&gt;
 &lt;&lt;include &quot;header&quot;&gt;&gt;
 &lt;main&gt;
+&lt;&lt;type 60ms&gt;&gt;
   &lt;p&gt;The mines have been swept&lt;/p&gt;
   &lt;p&gt;The paddle steamer has saved the day&lt;/p&gt;
   &lt;p&gt;And now, without the war over, it will be repurposed… into a club. &lt;/p&gt;
@@ -877,6 +884,7 @@ To discover the frequency code turn to page 65 of this book.
   &lt;p&gt;THE LIFESAVING CLUB&lt;/p&gt;
   &lt;br/&gt;&lt;br/&gt;
   &lt;&lt;button &quot;Next&quot;&gt;&gt; &lt;&lt;goto $nextpass&gt;&gt; &lt;&lt;/button&gt;&gt;
+  &lt;&lt;/type&gt;&gt;
 &lt;/main&gt;
 &lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="timer" tags="nobr" position="1225,350" size="100,100">&lt;&lt;set $seconds to 90&gt;&gt;
 &lt;span id=&quot;countdown&quot;&gt;&lt;span class=&quot;secs&quot;&gt;$seconds&lt;/span&gt; &lt;span class=&quot;extra&quot;&gt;seconds&lt;/span&gt;&lt;/span&gt;
@@ -1084,7 +1092,7 @@ To discover the frequency code turn to page 65 of this book.
 &lt;&lt;/timed&gt;&gt;
 
 &lt;/main&gt;
-&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="gpwomenintro2" tags="nobr" position="725,475" size="100,100">&lt;&lt;set $prevpass to &quot;gpwomenintro1&quot;&gt;&gt;
+&lt;&lt;include &quot;footer&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="gpwomenintro2" tags="nobr" position="725,475" size="100,100">&lt;&lt;set $prevpass to &quot;gpwomenintro&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;gpwomenintro2&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;women360-1&quot;&gt;&gt;
 &lt;&lt;include &quot;headermessage&quot;&gt;&gt;
@@ -1168,15 +1176,15 @@ To discover the frequency code turn to page 65 of this book.
 &lt;&lt;case &quot;women360-1&quot;&gt;&gt;
 	&lt;iframe width=&quot;90%&quot; height=&quot;500px&quot; allowFullScreen=&quot;true&quot; allow=&quot;accelerometer; magnetometer; gyroscope&quot; style=&quot;display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);&quot; src=&quot;https://panoraven.com/en/embed/L6E5SHVzel&quot;&gt;&lt;/iframe&gt;
 &lt;&lt;case &quot;women360-2&quot;&gt;&gt;
-	&lt;iframe width=&quot;90%&quot; height=&quot;500px&quot; allowFullScreen=&quot;true&quot; allow=&quot;accelerometer; magnetometer; gyroscope&quot; style=&quot;display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);&quot; src=&quot;https://panoraven.com/en/embed/p3nwFwQz8L&quot;&gt;&lt;/iframe&gt;
- &lt;&lt;case &quot;women360-3&quot;&gt;&gt;
-	&lt;iframe width=&quot;90%&quot; height=&quot;500px&quot; allowFullScreen=&quot;true&quot; allow=&quot;accelerometer; magnetometer; gyroscope&quot; style=&quot;display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);&quot; src=&quot;https://panoraven.com/en/embed/p3nwFwQz8L&quot;&gt;&lt;/iframe&gt;
- &lt;&lt;case &quot;women360-4&quot;&gt;&gt;
 	&lt;iframe width=&quot;90%&quot; height=&quot;500px&quot; allowFullScreen=&quot;true&quot; allow=&quot;accelerometer; magnetometer; gyroscope&quot; style=&quot;display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);&quot; src=&quot;https://panoraven.com/en/embed/WU9CbM2F8H&quot;&gt;&lt;/iframe&gt;
+ &lt;&lt;case &quot;women360-3&quot;&gt;&gt;
+	&lt;iframe width=&quot;90%&quot; height=&quot;500px&quot; allowFullScreen=&quot;true&quot; allow=&quot;accelerometer; magnetometer; gyroscope&quot; style=&quot;display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);&quot; src=&quot;https://panoraven.com/en/embed/8cy9OdK3jm&quot;&gt;&lt;/iframe&gt;
+ &lt;&lt;case &quot;women360-4&quot;&gt;&gt;
+	&lt;iframe width=&quot;90%&quot; height=&quot;500px&quot; allowFullScreen=&quot;true&quot; allow=&quot;accelerometer; magnetometer; gyroscope&quot; style=&quot;display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);&quot; src=&quot;https://panoraven.com/en/embed/27k1O5S46q&quot;&gt;&lt;/iframe&gt;
  &lt;&lt;case &quot;women360-5&quot;&gt;&gt;
-	&lt;iframe width=&quot;90%&quot; height=&quot;500px&quot; allowFullScreen=&quot;true&quot; allow=&quot;accelerometer; magnetometer; gyroscope&quot; style=&quot;display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);&quot; src=&quot;https://panoraven.com/en/embed/p3nwFwQz8L&quot;&gt;&lt;/iframe&gt;
+	&lt;iframe width=&quot;90%&quot; height=&quot;500px&quot; allowFullScreen=&quot;true&quot; allow=&quot;accelerometer; magnetometer; gyroscope&quot; style=&quot;display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);&quot; src=&quot;https://panoraven.com/en/embed/zGpWPOcR1y&quot;&gt;&lt;/iframe&gt;
 &lt;&lt;default&gt;&gt;
-&lt;iframe width=&quot;90%&quot; height=&quot;500px&quot; allowFullScreen=&quot;true&quot; allow=&quot;accelerometer; magnetometer; gyroscope&quot; style=&quot;display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);&quot; src=&quot;https://panoraven.com/en/embed/p3nwFwQz8L&quot;&gt;&lt;/iframe&gt;
+&lt;iframe width=&quot;90%&quot; height=&quot;500px&quot; allowFullScreen=&quot;true&quot; allow=&quot;accelerometer; magnetometer; gyroscope&quot; style=&quot;display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);&quot; src=&quot;https://panoraven.com/en/embed/L6E5SHVzel&quot;&gt;&lt;/iframe&gt;
 &lt;&lt;/switch&gt;&gt;</tw-passagedata><tw-passagedata pid="39" name="choose360womenPW" tags="nobr" position="1100,475" size="100,100">&lt;&lt;switch $passage&gt;&gt;
 &lt;&lt;case &quot;women360-1&quot;&gt;&gt;
 	&lt;&lt;include &quot;pw360women1&quot;&gt;&gt;

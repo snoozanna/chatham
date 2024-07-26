@@ -690,6 +690,7 @@ The first letter of each landmark spells a name
 <<set $nextpass to "paddlesteamer3">>
 <<include "header">>
 <main class="main-section">
+<<type 60ms>>
 <p>MINE Yes</p>
 <p>We need to protect the soldiers from the Mines</p>
 <p>We’ll use the Paddle Steamer nearby</p>
@@ -727,6 +728,7 @@ Queen
 <p class="clue">
 Find the Fiction Blue Book by David Cramer Smith for the title.
 </p>
+<</type>>
 </main>
 <<include "footer">>
 
@@ -738,6 +740,7 @@ Find the Fiction Blue Book by David Cramer Smith for the title.
 <<set $nextpass to "loading">>
 <<include "header">>
 <main class="main-section">
+<<type 60ms>>
 <p>The Medway Queen.</p>
 <p>A Paddle Steamer.</p>
 <p>With a twist</p>
@@ -777,6 +780,7 @@ Find the Fiction Blue Book by David Cramer Smith for the title.
 To discover the frequency code turn to page 65 of this book. 
  </p>
 <p class="clue"> There is a 3 number code.</p>
+<</type>>
 </main>
 <<include "footer">>
 :: loading [nobr]
@@ -830,12 +834,14 @@ To discover the frequency code turn to page 65 of this book.
   <<include "timer">>
 </header>
 <main class="main-section timer">
+
 <p>The frequency code has triggered the autodestruct. </p>
 <p>There are 90 seconds to override them. </p>
 <p>The explosives are in the cannons in front of the library. </p>
 <p>Head to the canons and enter the 2 numbers inscribed on the canons. </p>
 
 <<include "pw4">>
+
 </main>
 <<include "footer">>
 
@@ -887,6 +893,7 @@ To discover the frequency code turn to page 65 of this book.
 <<set $nextpass to "paddleoutro">>
 <<include "header">>
 <main>
+<<type 60ms>>
   <p>The mines have been swept</p>
   <p>The paddle steamer has saved the day</p>
   <p>And now, without the war over, it will be repurposed… into a club. </p>
@@ -894,6 +901,7 @@ To discover the frequency code turn to page 65 of this book.
   <p>THE LIFESAVING CLUB</p>
   <br/><br/>
   <<button "Next">> <<goto $nextpass>> <</button>>
+  <</type>>
 </main>
 <<include "footer">>
 
@@ -1127,7 +1135,7 @@ To discover the frequency code turn to page 65 of this book.
 
 
 :: gpwomenintro2 [nobr]
-<<set $prevpass to "gpwomenintro1">>
+<<set $prevpass to "gpwomenintro">>
 <<set $passage to "gpwomenintro2">>
 <<set $nextpass to "women360-1">>
 <<include "headermessage">>
@@ -1219,15 +1227,15 @@ To discover the frequency code turn to page 65 of this book.
 <<case "women360-1">>
 	<iframe width="90%" height="500px" allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);" src="https://panoraven.com/en/embed/L6E5SHVzel"></iframe>
 <<case "women360-2">>
-	<iframe width="90%" height="500px" allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);" src="https://panoraven.com/en/embed/p3nwFwQz8L"></iframe>
- <<case "women360-3">>
-	<iframe width="90%" height="500px" allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);" src="https://panoraven.com/en/embed/p3nwFwQz8L"></iframe>
- <<case "women360-4">>
 	<iframe width="90%" height="500px" allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);" src="https://panoraven.com/en/embed/WU9CbM2F8H"></iframe>
+ <<case "women360-3">>
+	<iframe width="90%" height="500px" allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);" src="https://panoraven.com/en/embed/8cy9OdK3jm"></iframe>
+ <<case "women360-4">>
+	<iframe width="90%" height="500px" allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);" src="https://panoraven.com/en/embed/27k1O5S46q"></iframe>
  <<case "women360-5">>
-	<iframe width="90%" height="500px" allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);" src="https://panoraven.com/en/embed/p3nwFwQz8L"></iframe>
+	<iframe width="90%" height="500px" allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);" src="https://panoraven.com/en/embed/zGpWPOcR1y"></iframe>
 <<default>>
-<iframe width="90%" height="500px" allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);" src="https://panoraven.com/en/embed/p3nwFwQz8L"></iframe>
+<iframe width="90%" height="500px" allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);" src="https://panoraven.com/en/embed/L6E5SHVzel"></iframe>
 <</switch>>
 
 :: choose360womenPW [nobr]
