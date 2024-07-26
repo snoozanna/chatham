@@ -962,7 +962,7 @@ To discover the frequency code turn to page 65 of this book.
   
   <<timed 6s>>
     <<addclass "body" "red">>
-       <<audio "siren" "play">>
+       <<audio "siren" play>>
     <</timed>>
   
   <<timed 8s>>
@@ -989,6 +989,7 @@ To discover the frequency code turn to page 65 of this book.
 <<set $prevpass to "loading">>
 <<set $passage to "paddlesteamer4">>
 <<set $nextpass to "paddlesteamer5">>
+
 <header class="timer">
   <<include "timer">>
 </header>
@@ -1051,6 +1052,7 @@ To discover the frequency code turn to page 65 of this book.
 <<set $passage to "paddlesteamer5">>
 <<set $nextpass to "paddleoutro">>
 <<audio ":all" stop>>
+<<audio "complete" "play">>
 <<include "header">>
 <main>
 <<type 60ms>>

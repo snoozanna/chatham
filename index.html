@@ -942,7 +942,7 @@ To discover the frequency code turn to page 65 of this book.
   
   &lt;&lt;timed 6s&gt;&gt;
     &lt;&lt;addclass &quot;body&quot; &quot;red&quot;&gt;&gt;
-       &lt;&lt;audio &quot;siren&quot; &quot;play&quot;&gt;&gt;
+       &lt;&lt;audio &quot;siren&quot; play&gt;&gt;
     &lt;&lt;/timed&gt;&gt;
   
   &lt;&lt;timed 8s&gt;&gt;
@@ -961,6 +961,7 @@ To discover the frequency code turn to page 65 of this book.
 &lt;&lt;timed 16s&gt;&gt; &lt;&lt;goto &quot;preglitch&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="paddlesteamer4" tags="nobr" position="425,450" size="100,100">&lt;&lt;set $prevpass to &quot;loading&quot;&gt;&gt;
 &lt;&lt;set $passage to &quot;paddlesteamer4&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;paddlesteamer5&quot;&gt;&gt;
+
 &lt;header class=&quot;timer&quot;&gt;
   &lt;&lt;include &quot;timer&quot;&gt;&gt;
 &lt;/header&gt;
@@ -1016,6 +1017,7 @@ To discover the frequency code turn to page 65 of this book.
 &lt;&lt;set $passage to &quot;paddlesteamer5&quot;&gt;&gt;
 &lt;&lt;set $nextpass to &quot;paddleoutro&quot;&gt;&gt;
 &lt;&lt;audio &quot;:all&quot; stop&gt;&gt;
+&lt;&lt;audio &quot;complete&quot; &quot;play&quot;&gt;&gt;
 &lt;&lt;include &quot;header&quot;&gt;&gt;
 &lt;main&gt;
 &lt;&lt;type 60ms&gt;&gt;
