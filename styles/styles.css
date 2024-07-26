@@ -10,7 +10,7 @@
     --asparagus: #798f42;
     --asparagus-light: #97ad5a;
     --offwhite: #f6eee3;
-    --orange: rgb(255, 85, 0);
+    --orange: rgb(39, 34, 32);
     --lightorange: orange;
     --main-bg-color: var(--greenpea-dark1);
     --font-headings: "JetBrains Mono", monospace;
@@ -1252,4 +1252,10 @@ main.chapter-image{
 
 .whirl-container > img{
     height: 100%;
+}
+
+/* MONSTER DRAWINGS  */
+
+.book-container.drawing > img{
+  border-radius: 2rem;
 }

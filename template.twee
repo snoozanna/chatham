@@ -132,6 +132,9 @@ inputElement.addEventListener('change', (event) => {
 <<cacheaudio "ping1" "../assets/sound/ping1.mp3">>
 <<cacheaudio "correct" "../assets/sound/keep2.mp3">>
 <<cacheaudio "levelup" "../assets/sound/keep1.mp3">>
+<<cacheaudio "monster" "../assets/audio/monster2.mp3">>
+<<cacheaudio "siren" "../assets/sound/siren.mp3">>
+<<cacheaudio "timer" "../assets/sound/timer.mp3">>
 <<cacheaudio "complete" "../assets/sound/uploadcomplete.mp3">>
 <<waitforaudio>>
 
@@ -142,17 +145,17 @@ inputElement.addEventListener('change', (event) => {
 <header class="pano"><span>
 <<switch $passage>>
 <<case "women360-1">>
-	The first letter of each landmark spells a name
+	The first letter of the object or word behind the Book Monster Fog spells a forgotten name
 <<case "women360-2">>
-	The first letter of each landmark spells a name
+	The first letter of the object or word behind the Book Monster Fog spells a forgotten name
  <<case "women360-3">>
-The first letter of each landmark spells a name
+The first letter of the object or word behind the Book Monster Fog spells a forgotten name
  <<case "women360-4">>
-	The first letter of each landmark spells a name
+	The first letter of the object or word behind the Book Monster Fog spells a forgotten name
  <<case "women360-5">>
-The first letter of each landmark spells a name
+The first letter of the object or word behind the Book Monster Fog spells a forgotten name
 <<default>>
-The first letter of each landmark spells a name
+The first letter of the object or word behind the Book Monster Fog spells a forgotten name
 <</switch>>
 </span></header>
 
@@ -160,25 +163,27 @@ The first letter of each landmark spells a name
 <header class="pano"><span>Find the name of the road</span></header>
 
 :: headermessage [nobr]
-<header><h3>Incoming message</h3></header>
+<header><h3>The Book of Chatham</h3></header>
 
 
 :: landing {"position":"425,75","size":"100,100"}
 <<set $prevpass to "landing">>
 <<set $passage to "landing">>
 <<set $nextpass to "gp1">>
+<<audio ":all" stop>>
 <<include "header">>
 <main class="">
 <<button "Enter">><<goto "gp1">><</button>>
  </main>
 
 :: prepreglitch
+<<audio ":all" stop>>
 <iframe id="iframeAudio" src="https://youhavefoundconey.net/CG/assets/audio/static.mp3" style="display:none" allow="autoplay" ></iframe>
 <div class="filmgrain"></div>
 <div class="glitch-shape1"></div>
 <div class="glitch-shape2"></div>
 <div class="glitch-shape3"></div>
-<<timed 6s>>
+<<timed 8s>>
 <<goto "paddlesteamer1">>
 <</timed>>
 
@@ -232,7 +237,7 @@ The first letter of each landmark spells a name
 :: gp1 [nobr]
 <<set $prevpass to "landing">>
 <<set $passage to "gp1">>
-<<set $nextpass to "gp2">>
+<<set $nextpass to "gp1a">>
 <<include "headermessage">>
 <main class="main-section message">
 
@@ -273,7 +278,27 @@ The first letter of each landmark spells a name
     <</append>>
 <</timed>>
 
-<<timed 16s>>
+
+<<timed 14s>>
+    <<append "#msgMount">>
+  <<button "Next">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
+
+</main>
+<<include "footer">>
+
+
+:: gp1a [nobr]
+<<set $prevpass to "gp1">>
+<<set $passage to "gp1a">>
+<<set $nextpass to "gp2">>
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+
+<<timed 2s>>
     <<audio "ping1" "play">>
     <<replace "#msgMount">>
     <span class="sender">Geraldine</span>
@@ -281,28 +306,28 @@ The first letter of each landmark spells a name
     <</replace>>
 <</timed>>
 
-<<timed 18s>>
+<<timed 4s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p>The Librarian who is actually an Octopus</p>
     <</append>>
 <</timed>>
 
-<<timed 20s>>
+<<timed 6s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p>I know this is getting stranger</p>
     <</append>>
 <</timed>>
 
-<<timed 22s>>
+<<timed 8s>>
     <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p class="final">But I do need your help</p>
     <</append>>
 <</timed>>
 
-<<timed 24s>>
+<<timed 10s>>
     <<append "#msgMount">>
   <<button "Next">> <<goto $nextpass>><</button>>
     <</append>>
@@ -314,7 +339,7 @@ The first letter of each landmark spells a name
 :: gp2 [nobr]
 <<set $prevpass to "gp1">>
 <<set $passage to "gp2">>
-<<set $nextpass to "drawing1">>
+<<set $nextpass to "gp2a">>
 <<include "headermessage">>
 <main class="main-section message">
 
@@ -348,7 +373,26 @@ The first letter of each landmark spells a name
     <</append>>
 <</timed>>
 
-<<timed 14s>>
+<<timed 12s>>
+    <<append "#msgMount">>
+  <<button "Next">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
+
+</main>
+<<include "footer">>
+
+:: gp2a [nobr]
+<<set $prevpass to "gp2">>
+<<set $passage to "gp2a">>
+<<set $nextpass to "drawing1">>
+<<audio ":all" stop>>
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+
+<<timed 2s>>
     <<audio "ping1" "play">>
     <<replace "#msgMount">>
     <span class="sender">Geraldine</span>
@@ -356,14 +400,14 @@ The first letter of each landmark spells a name
     <</replace>>
 <</timed>>
 
-<<timed 18s>>
+<<timed 6s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p>I’ve never seen them but the legend of the Book Monster has been passed through time.</p>
     <</append>>
 <</timed>>
 
-<<timed 20s>>
+<<timed 10s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p class="final">Here are some of the drawings of what they might look like.</p>
@@ -371,7 +415,7 @@ The first letter of each landmark spells a name
 <</timed>>
 
 
-<<timed 22s>>
+<<timed 14s>>
     <<append "#msgMount">>
   <<button "Show Me">> <<goto $nextpass>><</button>>
     <</append>>
@@ -380,49 +424,75 @@ The first letter of each landmark spells a name
 </main>
 <<include "footer">>
 
-:: drawing1
-<<set $prevpass to "gp2">>
+
+:: drawing1 [nobr]
+<<set $prevpass to "gp2a">>
 <<set $passage to "drawing1">>
 <<set $nextpass to "drawing2">>
+    <<audio "monster" loop play>>
+<<include "header">>
   <main>
-    <div class="book-container imgfadein"><img src="assets/img/monster1.jpg"></div>
-    <<timed 2s>>
+  <div class="filmgrain"></div>
+<div class="glitch-shape1"></div>
+<div class="glitch-shape2"></div>
+<div class="glitch-shape3"></div>
+    <div class="book-container drawing imgfadein"><img src="assets/img/monster1.jpg"></div>
+    <<timed 4s>>
+      <br/>  <br/>
     <<button "Next">> <<goto $nextpass>><</button>>
     <</timed>>
   </main>
   <<include "footer">>
 
-:: drawing2
+:: drawing2 [nobr]
 <<set $prevpass to "drawing1">>
 <<set $passage to "drawing2">>
 <<set $nextpass to "drawing3">>
+<<include "header">>
 <main>
-    <div class="book-container imgfadein"><img src="assets/img/monster2.jpg"></div>
-   <<timed 2s>>
+  <div class="filmgrain"></div>
+<div class="glitch-shape1"></div>
+<div class="glitch-shape2"></div>
+<div class="glitch-shape3"></div>
+    <div class="book-container drawing imgfadein"><img src="assets/img/monster2.jpg"></div>
+   <<timed 4s>>
+         <br/>  <br/>
     <<button "Next">> <<goto $nextpass>><</button>>
     <</timed>>
 </main>
 <<include "footer">>
 
-:: drawing3
+:: drawing3 [nobr]
 <<set $prevpass to "drawing2">>
 <<set $passage to "drawing3">>
 <<set $nextpass to "drawing4">>
+<<include "header">>
 <main>
-    <div class="book-container imgfadein"><img src="assets/img/monster3.jpg"></div>
- <<timed 2s>>
+  <div class="filmgrain"></div>
+<div class="glitch-shape1"></div>
+<div class="glitch-shape2"></div>
+<div class="glitch-shape3"></div>
+    <div class="book-container drawing imgfadein"><img src="assets/img/monster3.jpg"></div>
+ <<timed 4s>>
+     <br/>  <br/>
     <<button "Next">> <<goto $nextpass>><</button>>
     <</timed>>
 </main>
 <<include "footer">>
 
-:: drawing4
+:: drawing4 [nobr]
 <<set $prevpass to "drawing3">>
 <<set $passage to "drawing4">>
 <<set $nextpass to "gp3">>
+<<include "header">>
 <main>
-    <div class="book-container imgfadein"><img src="assets/img/monster4.jpg"></div>
-  <<timed 2s>>
+  <div class="filmgrain"></div>
+<div class="glitch-shape1"></div>
+<div class="glitch-shape2"></div>
+<div class="glitch-shape3"></div>
+    <div class="book-container drawing imgfadein"><img src="assets/img/monster4.jpg"></div>
+  <<timed 4s>>
+       <br/>  <br/>
     <<button "Next">> <<goto $nextpass>><</button>>
     <</timed>>
 </main>
@@ -430,7 +500,8 @@ The first letter of each landmark spells a name
 :: gp3 [nobr]
 <<set $prevpass to "drawing4">>
 <<set $passage to "gp3">>
-<<set $nextpass to "gp4">>
+<<set $nextpass to "gp3a">>
+<<audio ":all" stop>>
 <<include "headermessage">>
 <main class="main-section message">
 
@@ -471,30 +542,49 @@ The first letter of each landmark spells a name
     <</append>>
 <</timed>>
 
+<<timed 15s>>
+    <<append "#msgMount">>
+  <<button "Next">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
 
-<<timed 17s>>
+</main>
+<<include "footer">>
+
+:: gp3a [nobr]
+<<set $prevpass to "gp3">>
+<<set $passage to "gp3a">>
+<<set $nextpass to "gp4">>
+<<audio ":all" stop>>
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+
+
+<<timed 1s>>
     <<audio "ping1" "play">>
-    <<replace "#msgMount">>
+    <<append "#msgMount">>
     <span class="sender">Geraldine</span>
-    <p>I wrote a book</p>
-    <</replace>>
-<</timed>>
-
-<<timed 19s>>
-  <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p>A book about the local history of Chatham</p>
+    <p>I wrote a book decades ago</p>
     <</append>>
 <</timed>>
 
-<<timed 22s>>
+<<timed 4s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
-    <p>Of tales of our area</p>
+    <p>I was a character in that book </p>
     <</append>>
 <</timed>>
 
-<<timed 25s>>
+<<timed 6s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>About the local history of Chatham</p>
+    <</append>>
+<</timed>>
+
+<<timed 8s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p>But only Johnny has been reading it</p>
@@ -502,14 +592,14 @@ The first letter of each landmark spells a name
 <</timed>>
 
 
-<<timed 28s>>
+<<timed 10s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p>Local history isn’t as interesting to some people</p>
     <</append>>
 <</timed>>
 
-<<timed 31s>>
+<<timed 13s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p class="final">I mean - how many stories do you know about Chatham? </p>
@@ -517,7 +607,7 @@ The first letter of each landmark spells a name
 <</timed>>
 
 
-<<timed 34s>>
+<<timed 16s>>
     <<append "#msgMount">>
   <<button "Next">> <<goto $nextpass>><</button>>
     <</append>>
@@ -530,7 +620,7 @@ The first letter of each landmark spells a name
 :: gp4 [nobr]
 <<set $prevpass to "gp3">>
 <<set $passage to "gp4">>
-<<set $nextpass to "bookhealth1">>
+<<set $nextpass to "gp4a">>
 <<include "headermessage">>
 <main class="main-section message">
 
@@ -552,61 +642,9 @@ The first letter of each landmark spells a name
 
 
 
-<<timed 7s>>
-    <<audio "ping1" "play">>
-    <<replace "#msgMount">>
-        <span class="sender">Geraldine</span>
-    <p>We need to anchor the stories of Chatham here</p>
-    <</replace>>
-<</timed>>
-
-<<timed 13s>>
-    <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p>Stories need to be shared</p>
-    <</append>>
-<</timed>>
-
-<<timed 16s>>
-    <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p>History needs to be told. </p>
-    <</append>>
-<</timed>>
-
-<<timed 18s>>
-    <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p>Complete the challenges - hear the stories - stop the monster - save me </p>
-    <</append>>
-<</timed>>
-
-<<timed 20s>>
-    <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p>Easy right!? </p>
-    <</append>>
-<</timed>>
 
 
-<<timed 22s>>
-    <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p>Good luck.  </p>
-    <</append>>
-<</timed>>
-
-
-<<timed 24s>>
-    <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p class="final">Let’s get into Chapter 1.  </p>
-    <</append>>
-<</timed>>
-
-
-
-<<timed 26s>>
+<<timed 6s>>
     <<append "#msgMount">>
   <<button "Next">> <<goto $nextpass>><</button>>
     <</append>>
@@ -615,7 +653,77 @@ The first letter of each landmark spells a name
 </main>
 <<include "footer">>
 
+:: gp4a [nobr]
+<<set $prevpass to "gp4">>
+<<set $passage to "gp4a">>
+<<set $nextpass to "bookhealth1">>
+<<include "headermessage">>
+<main class="main-section message">
 
+<div id="msgMount"></div>
+
+<<timed 1s>>
+    <<audio "ping1" "play">>
+    <<append "#msgMount">>
+        <span class="sender">Geraldine</span>
+    <p>We need to anchor the stories of Chatham here</p>
+    <</append>>
+<</timed>>
+
+<<timed 3s>>
+    <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>Stories need to be shared</p>
+    <</append>>
+<</timed>>
+
+<<timed 6s>>
+    <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>History needs to be told. </p>
+    <</append>>
+<</timed>>
+
+<<timed 8s>>
+    <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>Complete the challenges - hear the stories - stop the monster - save me </p>
+    <</append>>
+<</timed>>
+
+<<timed 12s>>
+    <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>Easy right!? </p>
+    <</append>>
+<</timed>>
+
+
+<<timed 14s>>
+    <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>Good luck.  </p>
+    <</append>>
+<</timed>>
+
+
+<<timed 16s>>
+    <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p class="final">Let’s get into Chapter 1.  </p>
+    <</append>>
+<</timed>>
+
+
+
+<<timed 18s>>
+    <<append "#msgMount">>
+  <<button "Next">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
+
+</main>
+<<include "footer">>
 
 :: bookhealth1 [nobr]
 <<set $prevpass to "landing">>
@@ -685,7 +793,7 @@ The first letter of each landmark spells a name
    
 </div>
 </p>
-<p class="clue">Find the book by Michael Robothan ‘When you are….’ It is a Crime Thriller. </p><</type>>
+<p class="clue">Find the book by Michael Robothan ‘When you are...’ It is a Crime Thriller. </p><</type>>
 
 </main>
 <<include "footer">>
@@ -701,7 +809,7 @@ The first letter of each landmark spells a name
 <<type 60ms>>
 <p>MINE Yes</p>
 <p>We need to protect the soldiers from the Mines</p>
-<p>We’ll use the Paddle Steamer nearby</p>
+<p>They'd used the Paddle Steamer nearby</p>
 <p>A paddleboat called the  
 <div class="css-input code-input codeword-input">
     <<textbox "$codeword2" "">>
@@ -746,6 +854,7 @@ Find the Fiction Blue Book by David Cramer Smith for the title.
 <<set $prevpass to "paddlesteamer2">>
 <<set $passage to "paddlesteamer3">>
 <<set $nextpass to "loading">>
+<<audio ":all" stop>>
 <<include "header">>
 <main class="main-section">
 <<type 60ms>>
@@ -795,6 +904,7 @@ To discover the frequency code turn to page 65 of this book.
 <<set $prevpass to "paddlesteamer3">>
 <<set $passage to "loading">>
 <<set $nextpass to "paddlesteamer4">>
+<<audio ":all" stop>>
 <main class="loading">
   <div id="mount"></div>
   <<timed 0.5s>>
@@ -812,6 +922,7 @@ To discover the frequency code turn to page 65 of this book.
   
   <<timed 6s>>
     <<addclass "body" "red">>
+       <<audio "siren" "play">>
     <</timed>>
   
   <<timed 8s>>
@@ -827,7 +938,7 @@ To discover the frequency code turn to page 65 of this book.
   
 </main>
 
-<<timed 16s>> <<goto "preglitch">><</timed>>
+<<timed 16s>> <<audio ":all" stop>><<goto "preglitch">><</timed>>
 
 
 
@@ -879,7 +990,7 @@ To discover the frequency code turn to page 65 of this book.
     <<if ($code1 + $code2 + $code3) is "243224">>
      <<replace "#coderesult">><p>CORRECT</p><</replace>>
       <<audio "correct" play>>
-      <<timed 3s>><<goto "5">><</timed>>
+      <<timed 3s>><<goto $nextpass>><</timed>>
     <</if>>
   <</if>>
   /% CODEWORD INCORRECT %/
@@ -899,6 +1010,7 @@ To discover the frequency code turn to page 65 of this book.
 <<set $prevpass to "paddlesteamer4">>
 <<set $passage to "paddlesteamer5">>
 <<set $nextpass to "paddleoutro">>
+<<audio ":all" stop>>
 <<include "header">>
 <main>
 <<type 60ms>>
@@ -914,6 +1026,7 @@ To discover the frequency code turn to page 65 of this book.
 <<include "footer">>
 
 :: timer [nobr]
+  <<audio "timer" "play">>
 <<set $seconds to 90>>
 <span id="countdown"><span class="secs">$seconds</span> <span class="extra">seconds</span></span>
 
@@ -935,7 +1048,9 @@ To discover the frequency code turn to page 65 of this book.
 <</silently>>
 
 
+
 :: timermap [nobr]
+  <<audio "timer" "play">>
 <<set $seconds to 10>>
 <span id="countdown" class="timermap"><span class="secs">$seconds</span> <span class="extra">seconds</span></span>
 
@@ -946,7 +1061,7 @@ To discover the frequency code turn to page 65 of this book.
 		<<if $seconds gt 0>>
 			<<replace "#countdown">><span class="secs">$seconds</span> <span class="extra">seconds</span><</replace>>
 		<<else>>
-			<<replace "#countdown">><<include "begone" >><</replace>>
+			<<replace "#countdown">><<audio ":all" stop>><<include "begone" >><</replace>>
   
 			<<stop>>
 		<</if>>
@@ -956,6 +1071,7 @@ To discover the frequency code turn to page 65 of this book.
 
 
 :: notime [nobr]
+<<audio ":all" stop>>
 <main> 
    <div id="textMount"></div>
    <<timed 0.5s>> 
@@ -982,7 +1098,7 @@ To discover the frequency code turn to page 65 of this book.
 :: paddleoutro [nobr]
 <<set $prevpass to "paddlesteamer5">>
 <<set $passage to "paddleoutro">>
-<<set $nextpass to "women360-1">>
+<<set $nextpass to "paddleoutrob">>
 
 <<include "headermessage">>
 <main class="main-section message">
@@ -1022,34 +1138,52 @@ To discover the frequency code turn to page 65 of this book.
 <<timed 10s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
-    <p>It seems all of these stories are mixed up so you are going to need to work hard before the...</p>
+    <p>It seems all of these stories are mixed up so you are going to need to work hard before the</p>
     <</append>>
 <</timed>>
 
-<<timed 13s>>
-  <<append "#msgMount">>
-    <p>...</p>
-    <</append>>
-    <<append "#msgMount">>
+<<timed 14s>>
+      <<append "#msgMount">>
 <audio src="assets/audio/monster1.mp3" autoplay>Audio not supported in your browser</audio>
+ <div class="filmgrain"></div>
+<div class="glitch-shape1"></div>
+<div class="glitch-shape2"></div>
+<div class="glitch-shape3"></div>
     <</append>>
+  <</timed>>
+<<timed 18s>>
+  <<goto $nextpass>>
+
 <</timed>>
 
-<<timed 17s>>
+</main>
+<<include "footer">>
+
+:: paddleoutrob [nobr]
+<<set $prevpass to "paddleoutro">>
+<<set $passage to "paddleoutrob">>
+<<set $nextpass to "bookhealth2">>
+
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+
+<<timed 2s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p>The Book Monster. </p>
     <</append>>
 <</timed>>
 
-<<timed 20s>>
+<<timed 4s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p>Ok, onto the next chapter</p>
     <</append>>
 <</timed>>
 
-<<timed 23s>>
+<<timed 6s>>
     <<append "#msgMount">>
   <<button "Next">> <<goto $nextpass>><</button>>
     <</append>>
@@ -1120,7 +1254,7 @@ To discover the frequency code turn to page 65 of this book.
 <<timed 15s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
-    <p>She was called… Ha…errr…I can’t remember! </p>
+    <p>She was called... Ha...errr...I can’t remember! </p>
     <</append>>
 <</timed>>
 
@@ -1145,7 +1279,7 @@ To discover the frequency code turn to page 65 of this book.
 :: gpwomenintro2 [nobr]
 <<set $prevpass to "gpwomenintro">>
 <<set $passage to "gpwomenintro2">>
-<<set $nextpass to "women360-1">>
+<<set $nextpass to "gpwomenintro2b">>
 <<include "headermessage">>
 <main class="main-section message">
 
@@ -1154,7 +1288,7 @@ To discover the frequency code turn to page 65 of this book.
     <<audio "ping1" "play">>
     <<append "#msgMount">>
     <span class="sender">Geraldine</span>
-    <p>I remember where I was when I saw her…</p>
+    <p>I remember where I was when I saw her...</p>
     <</append>>
 <</timed>>
 
@@ -1179,36 +1313,9 @@ To discover the frequency code turn to page 65 of this book.
     <</append>>
 <</timed>>
 
+
+
 <<timed 14s>>
-    <<audio "ping1" "play">>
-    <<replace "#msgMount">>
-    <span class="sender">Geraldine</span>
-    <p>Googly Moogly is blocking anything that might jog my memory</p>
-    <</replace>>
-<</timed>>
-
-<<timed 17s>>
-  <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p>I’m sending you a location</p>
-    <</append>>
-<</timed>>
-
-<<timed 20s>>
-  <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p>Go to that spot, find the landmark that is being blocked</p>
-    <</append>>
-<</timed>>
-
-<<timed 22s>>
-    <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p class="final">Can you tell me the object that Googly Moogly is blocking?</p>
-    <</append>>
-<</timed>>
-
-<<timed 24s>>
     <<append "#msgMount">>
   <<button "Next">> <<goto $nextpass>><</button>>
     <</append>>
@@ -1216,6 +1323,91 @@ To discover the frequency code turn to page 65 of this book.
 
 </main>
 <<include "footer">>
+
+:: gpwomenintro2b [nobr]
+<<set $prevpass to "gpwomenintro2">>
+<<set $passage to "gpwomenintro2b">>
+<<set $nextpass to "gpwomenintro2C">>
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+
+<<timed 2s>>
+    <<audio "ping1" "play">>
+    <<replace "#msgMount">>
+    <span class="sender">Geraldine</span>
+    <p>Googly Moogly is blocking anything that might jog my memory</p>
+    <</replace>>
+<</timed>>
+
+<<timed 5s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>I’m sending you a location</p>
+    <</append>>
+<</timed>>
+
+<<timed 7s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>Go to that spot, find the landmark that is being blocked</p>
+    <</append>>
+<</timed>>
+
+<<timed 10s>>
+    <<append "#msgMount">>
+  <<button "Next">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
+
+</main>
+<<include "footer">>
+
+
+:: gpwomenintro2 [nobr]
+<<set $prevpass to "gpwomenintro2b">>
+<<set $passage to "gpwomenintro2c">>
+<<set $nextpass to "women360-1">>
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+
+<<timed 2s>>
+    <<audio "ping1" "play">>
+    <<replace "#msgMount">>
+    <span class="sender">Geraldine</span>
+    <p>Take a look at the image - you can move the image around</p>
+    <</replace>>
+<</timed>>
+
+<<timed 5s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>Find the object that the monster fog is blocking</p>
+    <</append>>
+<</timed>>
+
+<<timed 7s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>Type the first letter of that object into the box </p>
+    <</append>>
+<</timed>>
+
+
+
+<<timed 9s>>
+    <<append "#msgMount">>
+  <<button "I'm ready!">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
+
+</main>
+<<include "footer">>
+
+
 
 :: challenge2intro
 <<set $prevpass to "bookhealth1">>
@@ -1469,7 +1661,7 @@ To discover the frequency code turn to page 65 of this book.
 :: womenoutro [nobr]
 <<set $prevpass to "women360-5">>
 <<set $passage to "womenoutro">>
-<<set $nextpass to "womenoutro2">>
+<<set $nextpass to "womenoutrob">>
 
 <<include "headermessage">>
 <main class="main-section message">
@@ -1504,48 +1696,87 @@ To discover the frequency code turn to page 65 of this book.
     <</append>>
 <</timed>>
 
-<<timed 12s>>
+<<timed 11s>>
+    <<append "#msgMount">>
+  <<button "Next">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
+
+</main>
+<<include "footer">>
+
+
+:: womenoutrob [nobr]
+<<set $prevpass to "womenoutro">>
+<<set $passage to "womenoutrob">>
+<<set $nextpass to "womenoutroc">>
+
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+
+<<timed 1s>>
   <<audio "ping1" "play">>
     <<replace "#msgMount">>
     <p>But when she returned she was quite the celebrity</p>
     <</replace>>
 <</timed>>
 
-<<timed 14s>>
+<<timed 4s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p>She fought in the Siege of Pondicherry and was shot 6 times</p>
     <</append>>
 <</timed>>
 
-<<timed 16s>>
+<<timed 6s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p class="final">She had to remove the bullets herself to avoid getting caught.</p>
     <</append>>
 <</timed>>
 
-<<timed 20s>>
+<<timed 10s>>
+    <<append "#msgMount">>
+  <<button "Next">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
+
+</main>
+<<include "footer">>
+
+:: womenoutroc [nobr]
+<<set $prevpass to "womenoutrob">>
+<<set $passage to "womenoutroc">>
+<<set $nextpass to "womenoutro2">>
+
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+
+<<timed 2s>>
   <<audio "ping1" "play">>
     <<replace "#msgMount">>
     <p>Thank you, my memories are coming back to me so much clearer now</p>
     <</replace>>
 <</timed>>
 
-<<timed 22s>>
+<<timed 4s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p>The monster was trying to disguise Hannah’s name from me,</p>
     <</append>>
 <</timed>>
 
-<<timed 24s>>
+<<timed 7s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p>just like she disguised herself from everyone else.</p>
     <</append>>
 <</timed>>
-<<timed 26s>>
+<<timed 10s>>
     <<append "#msgMount">>
   <<button "Next">> <<goto $nextpass>><</button>>
     <</append>>
@@ -1556,9 +1787,9 @@ To discover the frequency code turn to page 65 of this book.
 
 
 :: womenoutro2 [nobr]
-<<set $prevpass to "womenoutro2">>
+<<set $prevpass to "womenoutroc">>
 <<set $passage to "womenoutro2">>
-<<set $nextpass to "bookhealth3">>
+<<set $nextpass to "womenoutro2b">>
 
 <<include "headermessage">>
 <main class="main-section message">
@@ -1594,37 +1825,57 @@ To discover the frequency code turn to page 65 of this book.
 <</timed>>
 
 
-<<timed 14s>>
-    <<append "#msgMount">>
-    <p>...</p>
-    <</append>>
-    <<append "#msgMount">>
+<<timed 12s>>
+  <<append "#msgMount">>
 <audio src="assets/audio/monster2.mp3" autoplay>Audio not supported in your browser</audio>
+ <div class="filmgrain"></div>
+<div class="glitch-shape1"></div>
+<div class="glitch-shape2"></div>
+<div class="glitch-shape3"></div>
     <</append>>
 <</timed>>
 
-<<timed 18s>>
+<<timed 17s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p class="final">Ok that doesn’t sound good.</p>
     <</append>>
 <</timed>>
 
-<<timed 22s>>
+<<timed 19s>>
+    <<append "#msgMount">>
+  <<button "Ready">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
+
+</main>
+<<include "footer">>
+
+:: womenoutro2b [nobr]
+<<set $prevpass to "womenoutro2">>
+<<set $passage to "womenoutro2b">>
+<<set $nextpass to "bookhealth3">>
+
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+
+<<timed 1s>>
   <<audio "ping1" "play">>
     <<replace "#msgMount">>
     <p>Let’s not stop there. Find a spot looking out to the river</p>
     <</replace>>
 <</timed>>
 
-<<timed 25s>>
+<<timed 3s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p>When there click below to let me know you are ready for Chapter 3</p>
     <</append>>
 <</timed>>
 
-<<timed 28s>>
+<<timed 6s>>
     <<append "#msgMount">>
   <<button "Ready">> <<goto $nextpass>><</button>>
     <</append>>
@@ -1714,7 +1965,7 @@ To discover the frequency code turn to page 65 of this book.
 :: narwhalintro2 [nobr]
 <<set $prevpass to "narwhalintro">>
 <<set $passage to "narwhalintro2">>
-<<set $nextpass to "narwhalimageupload">>
+<<set $nextpass to "narwhalintro2a">>
 
 <<include "headermessage">>
 <main class="main-section message">
@@ -1737,10 +1988,10 @@ To discover the frequency code turn to page 65 of this book.
 
 <<timed 7s>>
   <<audio "ping1" "play">>
-    <<replace "#msgMount">>
+    <<append "#msgMount">>
        <span class="sender">Geraldine</span>
     <p>The river changes though</p>
-    <</replace>>
+    <</append>>
 <</timed>>
 
 <<timed 10s>>
@@ -1764,7 +2015,28 @@ To discover the frequency code turn to page 65 of this book.
     <</append>>
 <</timed>>
 
-<<timed 18s>>
+
+<<timed 17s>>
+    <<append "#msgMount">>
+  <<button "Next">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
+
+</main>
+<<include "footer">>
+
+
+:: narwhalintro2a [nobr]
+<<set $prevpass to "narwhalintro2">>
+<<set $passage to "narwhalintro2a">>
+<<set $nextpass to "narwhalintro2b">>
+
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+
+<<timed 1s>>
   <<audio "ping1" "play">>
     <<replace "#msgMount">>
        <span class="sender">Geraldine</span>
@@ -1772,28 +2044,49 @@ To discover the frequency code turn to page 65 of this book.
     <</replace>>
 <</timed>>
 
-<<timed 21s>>
+<<timed 3s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p >Because it is always changing</p>
     <</append>>
 <</timed>>
 
-<<timed 24s>>
+<<timed 6s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p>And today is tomorrow’s history</p>
     <</append>>
 <</timed>>
 
-<<timed 26s>>
+<<timed 9s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p class="final">So why don’t you add to this history book</p>
     <</append>>
 <</timed>>
 
-<<timed 30s>>
+
+<<timed 13s>>
+    <<append "#msgMount">>
+  <<button "Next">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
+
+</main>
+<<include "footer">>
+
+:: narwhalintro2b [nobr]
+<<set $prevpass to "narwhalintro2a">>
+<<set $passage to "narwhalintro2b">>
+<<set $nextpass to "narwhalimageupload">>
+
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+
+
+<<timed 1s>>
   <<audio "ping1" "play">>
     <<replace "#msgMount">>
        <span class="sender">Geraldine</span>
@@ -1801,14 +2094,14 @@ To discover the frequency code turn to page 65 of this book.
     <</replace>>
 <</timed>>
 
-<<timed 32s>>
+<<timed 4s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p >Maybe you can spot something interesting</p>
     <</append>>
 <</timed>>
 
-<<timed 35s>>
+<<timed 7s>>
     <<append "#msgMount">>
   <<button "I'm Ready">> <<goto $nextpass>><</button>>
     <</append>>
@@ -1820,7 +2113,7 @@ To discover the frequency code turn to page 65 of this book.
 
 
 :: narwhalimageupload [nobr]
-<<set $prevpass to "narwhalintro2">>
+<<set $prevpass to "narwhalintro2b">>
 <<set $pass to "narwhalimageupload">>
 <<set $nextpass to "bookhealth4">>
 <<include "header">>
@@ -1966,7 +2259,7 @@ To discover the frequency code turn to page 65 of this book.
 <<audio "levelup" "play">>
 <main class="book-health">
   <div class="book-container imgfadein"><img src="assets/img/chap4.jpg"></div>
-  <br/><h2>CHAPTER 4: A Painted Elephant</br>
+  <br/><h2>CHAPTER 4: A Painted Elephant</h2>
    <<button "Next">> <<goto $nextpass>><</button>>
 </main>
 
@@ -2087,7 +2380,7 @@ To discover the frequency code turn to page 65 of this book.
 :: elephantoutro [nobr]
 <<set $prevpass to "elephant360">>
 <<set $passage to "elephantoutro">>
-<<set $nextpass to "bookhealth5">>
+<<set $nextpass to "elephantoutrob">>
 
 <<include "headermessage">>
 <main class="main-section message">
@@ -2129,53 +2422,6 @@ To discover the frequency code turn to page 65 of this book.
 <</timed>>
 
 <<timed 54s>>
-  <<replace "#msgMount">>
-    <p>...</p>
-    <</replace>>
-    <<append "#msgMount">>
-<audio src="assets/audio/monster4.mp3" autoplay>Audio not supported in your browser</audio>
-    <</append>>
-<</timed>>
-
-
-
-<<timed 60s>>
-  <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p >Oh it seems we are getting close</p>
-    <</append>>
-<</timed>>
-
-<<timed 63s>>
-  <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p >What you are doing is working</p>
-    <</append>>
-<</timed>>
-
-<<timed 66s>>
-  <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p >Soon I can be saved</p>
-    <</append>>
-<</timed>>
-
-<<timed 69s>>
-  <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p >And Johnny can be proud again. </p>
-    <</append>>
-<</timed>>
-
-<<timed 72s>>
-  <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p>I need you to be brave.  </p>
-    <</append>>
-<</timed>>
-
-
-<<timed 74s>>
     <<append "#msgMount">>
   <<button "I'm ready">> <<goto $nextpass>><</button>>
     <</append>>
@@ -2185,8 +2431,74 @@ To discover the frequency code turn to page 65 of this book.
 <<include "footer">>
 
 
+:: elephantoutrob [nobr]
+<<set $prevpass to "elephantoutro">>
+<<set $passage to "elephantoutrob">>
+<<set $nextpass to "bookhealth5">>
 
-:: bookhealth5
+<<include "headermessage">>
+<main class="main-section message">
+<div id="audio"></div>
+<div id="msgMount"></div>
+
+<<timed 1s>>
+      <<append "#msgMount">>
+<audio src="assets/audio/monster4.mp3" autoplay>Audio not supported in your browser</audio>
+ <div class="filmgrain"></div>
+<div class="glitch-shape1"></div>
+<div class="glitch-shape2"></div>
+<div class="glitch-shape3"></div>
+    <</append>>
+  <</timed>>
+
+
+<<timed 7s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p >Oh it seems we are getting close</p>
+    <</append>>
+<</timed>>
+
+<<timed 10s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p >What you are doing is working</p>
+    <</append>>
+<</timed>>
+
+<<timed 13s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p >Soon I can be saved</p>
+    <</append>>
+<</timed>>
+
+<<timed 15s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p >And Johnny can be proud again. </p>
+    <</append>>
+<</timed>>
+
+<<timed 17s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>I need you to be brave.  </p>
+    <</append>>
+<</timed>>
+
+
+<<timed 20s>>
+    <<append "#msgMount">>
+  <<button "I'm ready">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
+
+</main>
+<<include "footer">>
+
+
+:: bookhealth5 [nobr]
 <<set $prevpass to "elephantoutro">>
 <<set $passage to "bookhealth5">>
 <<set $nextpass to "gplionintro">>
@@ -2279,7 +2591,7 @@ To discover the frequency code turn to page 65 of this book.
 :: gplionintro2 [nobr]
 <<set $prevpass to "gplionintro">>
 <<set $passage to "gplionintro2">>
-<<set $nextpass to "gplionintro3">>
+<<set $nextpass to "gplionintro2a">>
 
 <<include "headermessage">>
 <main class="main-section message">
@@ -2308,14 +2620,35 @@ To discover the frequency code turn to page 65 of this book.
     <</append>>
 <</timed>>
 
-<<timed 10s>>
+<<timed 11s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p>Or some canon balls</p>
     <</append>>
 <</timed>>
 
-<<timed 13s>>
+<<timed 14s>>
+    <<append "#msgMount">>
+  <<button "Next">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
+
+</main>
+<<include "footer">>
+
+
+:: gplionintro2a [nobr]
+<<set $prevpass to "gplionintro2">>
+<<set $passage to "gplionintro2a">>
+<<set $nextpass to "gplionintro3">>
+
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+
+
+<<timed 1s>>
   <<audio "ping1" "play">>
     <<replace "#msgMount">>
     <p>But Ellen showed bravery every day </p>
@@ -2323,38 +2656,39 @@ To discover the frequency code turn to page 65 of this book.
 <</timed>>
 
 
-<<timed 16s>>
+<<timed 3s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p>Far more than I ever have. </p>
     <</append>>
 <</timed>>
 
-<<timed 19s>>
+<<timed 5s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p>I was sure to be a goner if you hadn’t turned up</p>
     <</append>>
 <</timed>>
 
-<<timed 22s>>
+<<timed 8s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p>The Book Monster would have finished me</p>
     <</append>>
 <</timed>>
 
-<<timed 25s>>
-  <<append "#msgMount">>
-    <p>...</p>
-    <</append>>
-    <<append "#msgMount">>
+<<timed 12s>>
+      <<append "#msgMount">>
 <audio src="assets/audio/monster5.mp3" autoplay>Audio not supported in your browser</audio>
+ <div class="filmgrain"></div>
+<div class="glitch-shape1"></div>
+<div class="glitch-shape2"></div>
+<div class="glitch-shape3"></div>
     <</append>>
-<</timed>>
+  <</timed>>
 
 
-<<timed 41s>>
+<<timed 29s>>
      <<goto $nextpass>>
 <</timed>>
 
@@ -2364,7 +2698,7 @@ To discover the frequency code turn to page 65 of this book.
 :: gplionintro3 [nobr]
 <<set $prevpass to "gplionintro2">>
 <<set $passage to "gplionintro3">>
-<<set $nextpass to "gplionintro4">>
+<<set $nextpass to "gplionintro3b">>
 
 <<include "headermessage">>
 <main class="main-section message">
@@ -2416,44 +2750,8 @@ To discover the frequency code turn to page 65 of this book.
 <</timed>>
 
 
+
 <<timed 17s>>
-  <<audio "ping1" "play">>
-    <<replace "#msgMount">>
-    <p>I need you </p>
-    <</replace>>
-<</timed>>
-
-
-<<timed 19s>>
-  <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p>I need you to be brave</p>
-    <</append>>
-<</timed>>
-
-<<timed 22s>>
-  <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p>Like the Lion Queen</p>
-    <</append>>
-<</timed>>
-
-<<timed 24s>>
-  <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p>Like Hannah Snell</p>
-    <</append>>
-<</timed>>
-
-<<timed 27s>>
-  <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p>Like... well you! 
-</p>
-    <</append>>
-<</timed>>
-
-<<timed 30s>>
     <<append "#msgMount">>
   <<button "Next">> <<goto $nextpass>><</button>>
     <</append>>
@@ -2464,8 +2762,66 @@ To discover the frequency code turn to page 65 of this book.
 <<include "footer">>
 
 
-:: gplionintro4 [nobr]
+:: gplionintro3b [nobr]
 <<set $prevpass to "gplionintro3">>
+<<set $passage to "gplionintro3b">>
+<<set $nextpass to "gplionintro4">>
+
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+
+
+<<timed 1s>>
+  <<audio "ping1" "play">>
+    <<replace "#msgMount">>
+    <p>I need you </p>
+    <</replace>>
+<</timed>>
+
+
+<<timed 3s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>I need you to be brave</p>
+    <</append>>
+<</timed>>
+
+<<timed 5s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>Like the Lion Queen</p>
+    <</append>>
+<</timed>>
+
+<<timed 7s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>Like Hannah Snell</p>
+    <</append>>
+<</timed>>
+
+<<timed 9s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>Like... well you! 
+</p>
+    <</append>>
+<</timed>>
+
+<<timed 11s>>
+    <<append "#msgMount">>
+  <<button "Next">> <<goto $nextpass>><</button>>
+    <</append>>
+<</timed>>
+
+
+</main>
+<<include "footer">>
+
+:: gplionintro4 [nobr]
+<<set $prevpass to "gplionintro3b">>
 <<set $passage to "gplionintro4">>
 <<set $nextpass to "gplionintro5">>
 
@@ -2502,7 +2858,7 @@ To discover the frequency code turn to page 65 of this book.
 <<set $prevpass to "gplionintro4">>
 <<set $passage to "gplionintro5">>
 <<set $nextpass to "mapchallenge">>
-
+<<audio ":all" stop>>
 <<include "headermessage">>
 <main class="main-section message">
 
@@ -2518,7 +2874,7 @@ To discover the frequency code turn to page 65 of this book.
 <<timed 4s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
-    <p>And get ready to use get rid of the monster</p>
+    <p>And get ready to get rid of the monster</p>
     <</append>>
 <</timed>>
 
@@ -2563,7 +2919,7 @@ To discover the frequency code turn to page 65 of this book.
 
 
 :: mapchallenge  [nobr]{"position":"425,450","size":"100,100"}
-<<set $prevpass to "gpmap3">>
+<<set $prevpass to "gplionintro5">>
 <<set $passage to "mapchallenge">>
 <<set $nextpass to "whirl">>
 
@@ -2573,7 +2929,7 @@ To discover the frequency code turn to page 65 of this book.
 <<include "footer">>
 
 :: begone
-<div class="motto-container"><span>BE GONE OOGERLY BOOGERLY</span></div>
+<div class="motto-container"><span>BE GONE GOOGLY MOOGLY</span></div>
 
 <<timed 15s>>
   <<goto "whirl">>
@@ -2584,6 +2940,8 @@ To discover the frequency code turn to page 65 of this book.
 <<set $prevpass to "mapchallenge">>
 <<set $passage to "whirl">>
 <<set $nextpass to "goodbye">>
+
+<<audio ":all" stop>>
 <audio src="assets/audio/monsterbook.mp3" autoplay>Audio not supported in your browser</audio>
   <div class="whirl-container imgfadein"><img src="assets/img/whirl.gif"></div>
 
@@ -2600,7 +2958,7 @@ To discover the frequency code turn to page 65 of this book.
   <</timed>>
 
 :: goodbye [nobr]
-<<set $prevpass to "whirl">>
+<<set $prevpass to "mapchallenge">>
 <<set $passage to "goodbye">>
 <<set $nextpass to "goodbye">>
 
