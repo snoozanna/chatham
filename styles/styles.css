@@ -912,6 +912,14 @@ animation: .8s delete infinite alternate;
 }
 
 /* BOOK  */
+
+main.book-health{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
 .book-container{
 
 }
@@ -1233,4 +1241,14 @@ main.chapter-image{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+/* WHIRL  */
+.whirl-container{
+    width: 110vw;
+    height: 100%;
+}
+
+.whirl-container > img{
+    height: 100%;
 }
