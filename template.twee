@@ -386,7 +386,9 @@ The first letter of each landmark spells a name
 <<set $nextpass to "drawing2">>
   <main>
     <div class="book-container imgfadein"><img src="assets/img/monster1.jpg"></div>
+    <<timed 2s>>
     <<button "Next">> <<goto $nextpass>><</button>>
+    <</timed>>
   </main>
   <<include "footer">>
 
@@ -396,7 +398,9 @@ The first letter of each landmark spells a name
 <<set $nextpass to "drawing3">>
 <main>
     <div class="book-container imgfadein"><img src="assets/img/monster2.jpg"></div>
+   <<timed 2s>>
     <<button "Next">> <<goto $nextpass>><</button>>
+    <</timed>>
 </main>
 <<include "footer">>
 
@@ -406,7 +410,9 @@ The first letter of each landmark spells a name
 <<set $nextpass to "drawing4">>
 <main>
     <div class="book-container imgfadein"><img src="assets/img/monster3.jpg"></div>
+ <<timed 2s>>
     <<button "Next">> <<goto $nextpass>><</button>>
+    <</timed>>
 </main>
 <<include "footer">>
 
@@ -416,7 +422,9 @@ The first letter of each landmark spells a name
 <<set $nextpass to "gp3">>
 <main>
     <div class="book-container imgfadein"><img src="assets/img/monster4.jpg"></div>
+  <<timed 2s>>
     <<button "Next">> <<goto $nextpass>><</button>>
+    <</timed>>
 </main>
 <<include "footer">>
 :: gp3 [nobr]
