@@ -1176,6 +1176,10 @@ header.pano{
 position: inherit;
 }
 
+header.pano > span{
+  font-size: 1.4rem;
+}
+
 main.pano{
     margin: 0;
     padding: 0;

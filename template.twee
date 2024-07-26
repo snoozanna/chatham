@@ -145,17 +145,23 @@ inputElement.addEventListener('change', (event) => {
 <header class="pano"><span>
 <<switch $passage>>
 <<case "women360-1">>
-	The first letter of the object or word behind the Book Monster Fog spells a forgotten name
+	Find the object that is being blocked by the Book Monsters fog. Type the FIRST LETTER of that object in the box below
+
 <<case "women360-2">>
-	The first letter of the object or word behind the Book Monster Fog spells a forgotten name
+	Find the object that is being blocked by the Book Monsters fog. Type the FIRST LETTER of that object in the box below
+
  <<case "women360-3">>
-The first letter of the object or word behind the Book Monster Fog spells a forgotten name
+Find the object that is being blocked by the Book Monsters fog. Type the FIRST LETTER of that object in the box below
+
  <<case "women360-4">>
-	The first letter of the object or word behind the Book Monster Fog spells a forgotten name
+	Find the object that is being blocked by the Book Monsters fog. Type the FIRST LETTER of that object in the box below
+
  <<case "women360-5">>
-The first letter of the object or word behind the Book Monster Fog spells a forgotten name
+Find the object that is being blocked by the Book Monsters fog. Type the FIRST LETTER of that object in the box below
+
 <<default>>
-The first letter of the object or word behind the Book Monster Fog spells a forgotten name
+Find the object that is being blocked by the Book Monsters fog. Type the FIRST LETTER of that object in the box below
+
 <</switch>>
 </span></header>
 
@@ -208,7 +214,7 @@ The first letter of the object or word behind the Book Monster Fog spells a forg
 :: footer [nobr]
 <footer>
  <<button "<--">> <<goto $prevpass>><</button>>
-   <<button "Start">> <<goto "landing">><</button>>
+   /* <<button "Start">> <<goto "landing">><</button>> */
   <<button "-->">> <<goto $nextpass>><</button>>
  </footer>
 
@@ -292,7 +298,7 @@ The first letter of the object or word behind the Book Monster Fog spells a forg
 :: gp1a [nobr]
 <<set $prevpass to "gp1">>
 <<set $passage to "gp1a">>
-<<set $nextpass to "gp2">>
+<<set $nextpass to "librarian">>
 <<include "headermessage">>
 <main class="main-section message">
 
@@ -309,25 +315,59 @@ The first letter of the object or word behind the Book Monster Fog spells a forg
 <<timed 4s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
-    <p>The Librarian who is actually an Octopus</p>
-    <</append>>
-<</timed>>
-
-<<timed 6s>>
-  <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p>I know this is getting stranger</p>
+    <p>The Librarian who is actually an Octopus and looks a bit like this...</p>
     <</append>>
 <</timed>>
 
 <<timed 8s>>
+  <<goto $nextpass>>
+<</timed>>
+
+
+</main>
+<<include "footer">>
+
+:: librarian [nobr]
+<<set $prevpass to "gp1a">>
+<<set $passage to "librarian">>
+<<set $nextpass to "gp1b">>
+    <<audio "monster" loop play>>
+<<include "header">>
+  <main>
+
+    <div class="book-container drawing imgfadein"><img src="assets/img/librarian.jpg"></div>
+    <<timed 9s>>
+  
+  <<goto $nextpass>>
+    <</timed>>
+  </main>
+  <<include "footer">>
+
+:: gp1b [nobr]
+<<set $prevpass to "gp1a">>
+<<set $passage to "gp1b">>
+<<set $nextpass to "gp2">>
+<<include "headermessage">>
+<main class="main-section message">
+
+<div id="msgMount"></div>
+
+<<timed 2s>>
+    <<audio "ping1" "play">>
+    <<replace "#msgMount">>
+    <span class="sender">Geraldine</span>
+    <p>I know this is getting stranger</p>
+    <</replace>>
+<</timed>>
+
+<<timed 4s>>
     <<audio "ping1" "play">>
     <<append "#msgMount">>
     <p class="final">But I do need your help</p>
     <</append>>
 <</timed>>
 
-<<timed 10s>>
+<<timed 6s>>
     <<append "#msgMount">>
   <<button "Next">> <<goto $nextpass>><</button>>
     <</append>>
@@ -396,7 +436,7 @@ The first letter of the object or word behind the Book Monster Fog spells a forg
     <<audio "ping1" "play">>
     <<replace "#msgMount">>
     <span class="sender">Geraldine</span>
-    <p>The Monster goes by many names - Monsters Inc, Story Shredder, Googly Moogly! </p>
+    <p>The Monster goes by many names - Monsters Ink, Story Shredder, Googly Moogly! </p>
     <</replace>>
 <</timed>>
 
@@ -793,7 +833,7 @@ The first letter of the object or word behind the Book Monster Fog spells a forg
    
 </div>
 </p>
-<p class="clue">Find the book by Michael Robothan ‘When you are...’ It is a Crime Thriller. </p><</type>>
+<p class="clue">Find the book by Michael Robothan ‘When you are...’ in the Crime, Thriller, Mystery section. </p><</type>>
 
 </main>
 <<include "footer">>
@@ -842,7 +882,7 @@ The first letter of the object or word behind the Book Monster Fog spells a forg
 Queen
 </p>
 <p class="clue">
-Find the Fiction Blue Book by David Cramer Smith for the title.
+Find the Fiction Blue Book by David Cramer - what’s the title?
 </p>
 <</type>>
 </main>
@@ -861,7 +901,7 @@ Find the Fiction Blue Book by David Cramer Smith for the title.
 <p>The Medway Queen.</p>
 <p>A Paddle Steamer.</p>
 <p>With a twist</p>
-<p>The ability to sweep for mines.</p>
+<p>The Medway Queen had the ability to sweep for mines.</p>
 <p>And save lives.</p>
 <p>But we need to find the frequency code that will defuse the mines.  </p>
 <div class="css-input code-input codeword-input">
@@ -938,7 +978,7 @@ To discover the frequency code turn to page 65 of this book.
   
 </main>
 
-<<timed 16s>> <<audio ":all" stop>><<goto "preglitch">><</timed>>
+<<timed 16s>> <<goto "preglitch">><</timed>>
 
 
 
@@ -1313,9 +1353,15 @@ To discover the frequency code turn to page 65 of this book.
     <</append>>
 <</timed>>
 
+<<timed 13s>>
+    <<audio "ping1" "play">>
+    <<replace "#msgMount">>
+    <span class="sender">Geraldine</span>
+    <p>Googly Moogly is blocking anything that might jog my memory</p>
+    <</replace>>
+<</timed>>
 
-
-<<timed 14s>>
+<<timed 17s>>
     <<append "#msgMount">>
   <<button "Next">> <<goto $nextpass>><</button>>
     <</append>>
@@ -1327,47 +1373,6 @@ To discover the frequency code turn to page 65 of this book.
 :: gpwomenintro2b [nobr]
 <<set $prevpass to "gpwomenintro2">>
 <<set $passage to "gpwomenintro2b">>
-<<set $nextpass to "gpwomenintro2C">>
-<<include "headermessage">>
-<main class="main-section message">
-
-<div id="msgMount"></div>
-
-<<timed 2s>>
-    <<audio "ping1" "play">>
-    <<replace "#msgMount">>
-    <span class="sender">Geraldine</span>
-    <p>Googly Moogly is blocking anything that might jog my memory</p>
-    <</replace>>
-<</timed>>
-
-<<timed 5s>>
-  <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p>I’m sending you a location</p>
-    <</append>>
-<</timed>>
-
-<<timed 7s>>
-  <<audio "ping1" "play">>
-    <<append "#msgMount">>
-    <p>Go to that spot, find the landmark that is being blocked</p>
-    <</append>>
-<</timed>>
-
-<<timed 10s>>
-    <<append "#msgMount">>
-  <<button "Next">> <<goto $nextpass>><</button>>
-    <</append>>
-<</timed>>
-
-</main>
-<<include "footer">>
-
-
-:: gpwomenintro2 [nobr]
-<<set $prevpass to "gpwomenintro2b">>
-<<set $passage to "gpwomenintro2c">>
 <<set $nextpass to "women360-1">>
 <<include "headermessage">>
 <main class="main-section message">
@@ -1378,35 +1383,46 @@ To discover the frequency code turn to page 65 of this book.
     <<audio "ping1" "play">>
     <<replace "#msgMount">>
     <span class="sender">Geraldine</span>
-    <p>Take a look at the image - you can move the image around</p>
+    <p>In a moment, I’ll send you a picture of a location</p>
     <</replace>>
 <</timed>>
 
 <<timed 5s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
-    <p>Find the object that the monster fog is blocking</p>
+    <p>Take a look at the image - you can move the image around</p>
     <</append>>
 <</timed>>
 
 <<timed 7s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
-    <p>Type the first letter of that object into the box </p>
+    <p>Find the object that the monster fog is blocking</p>
     <</append>>
 <</timed>>
 
-
-
-<<timed 9s>>
+<<timed 10s>>
+  <<audio "ping1" "play">>
     <<append "#msgMount">>
-  <<button "I'm ready!">> <<goto $nextpass>><</button>>
+    <p>And type the FIRST LETTER of that object into the box</p>
+    <</append>>
+<</timed>>
+
+<<timed 13s>>
+  <<audio "ping1" "play">>
+    <<append "#msgMount">>
+    <p>It helps if you go to the location</p>
+    <</append>>
+<</timed>>
+
+<<timed 15s>>
+    <<append "#msgMount">>
+  <<button "I'm Ready!">> <<goto $nextpass>><</button>>
     <</append>>
 <</timed>>
 
 </main>
 <<include "footer">>
-
 
 
 :: challenge2intro
@@ -1456,7 +1472,7 @@ To discover the frequency code turn to page 65 of this book.
 
 :: women360-1 [nobr]
 
-<<set $prevpass to "gpwomenintro2">>
+<<set $prevpass to "gpwomenintro2b">>
 <<set $passage to "women360-1">>
 <<set $nextpass to "women360-2">>
 <<include "header360women">>
@@ -1667,10 +1683,17 @@ To discover the frequency code turn to page 65 of this book.
 <main class="main-section message">
 
 <div id="msgMount"></div>
-<<timed 2s>>
+<<timed 1s>>
     <<audio "ping1" "play">>
     <<append "#msgMount">>
     <span class="sender">Geraldine</span>
+    <p>S.N.E.L.L</p>
+    <</append>>
+<</timed>>
+
+<<timed 2s>>
+    <<audio "ping1" "play">>
+    <<append "#msgMount">>
     <p>SNELL! THAT’S IT! Hannah Snell!</p>
     <</append>>
 <</timed>>
@@ -2387,15 +2410,18 @@ To discover the frequency code turn to page 65 of this book.
 <div id="audio"></div>
 <div id="msgMount"></div>
 
+
 <<timed 2s>>
   <<audio "ping1" "play">>
     <<append "#msgMount">>
-       <audio autoplay >
-  <source src="assets/audio/elephant.mp3">
-</audio>
- <<timed 0.5s>> <<replace "#note">><em>Playing...</em><</replace>><</timed>>
  <div class="voicenote">
 <<link "<img src = 'assets/img/play.png'>" >>
+ <<replace "#audio">>
+  <audio autoplay >
+  <source src="assets/audio/elephant.mp3">
+</audio>
+  <</replace>>
+  <<replace "#note">><em>Playing...</em><</replace>>
 <</link>> <p id="note">Voice note </p></div>
     <</append>>
 <</timed>>
