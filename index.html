@@ -1290,10 +1290,10 @@ To discover the frequency code turn to page 65 of this book.
 
 &lt;&lt;timed 13s&gt;&gt;
     &lt;&lt;audio &quot;ping1&quot; &quot;play&quot;&gt;&gt;
-    &lt;&lt;replace &quot;#msgMount&quot;&gt;&gt;
+    &lt;&lt;append &quot;#msgMount&quot;&gt;&gt;
     &lt;span class=&quot;sender&quot;&gt;Geraldine&lt;/span&gt;
     &lt;p&gt;Googly Moogly is blocking anything that might jog my memory&lt;/p&gt;
-    &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/append&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 
 &lt;&lt;timed 17s&gt;&gt;
@@ -1313,10 +1313,10 @@ To discover the frequency code turn to page 65 of this book.
 
 &lt;&lt;timed 2s&gt;&gt;
     &lt;&lt;audio &quot;ping1&quot; &quot;play&quot;&gt;&gt;
-    &lt;&lt;replace &quot;#msgMount&quot;&gt;&gt;
+    &lt;&lt;append &quot;#msgMount&quot;&gt;&gt;
     &lt;span class=&quot;sender&quot;&gt;Geraldine&lt;/span&gt;
     &lt;p&gt;In a moment, I’ll send you a picture of a location&lt;/p&gt;
-    &lt;&lt;/replace&gt;&gt;
+    &lt;&lt;/append&gt;&gt;
 &lt;&lt;/timed&gt;&gt;
 
 &lt;&lt;timed 5s&gt;&gt;
@@ -1362,7 +1362,7 @@ To discover the frequency code turn to page 65 of this book.
  &lt;div class=&quot;book-container imgfadein &quot;&gt;&lt;img src=&quot;assets/img/hippo.png&quot; class=&quot;pulse&quot;&gt;&lt;/div&gt;
   &lt;p&gt;Women in Disguise - NO AUDIO&lt;/p&gt;
    &lt;&lt;button &quot;Next&quot;&gt;&gt; &lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/button&gt;&gt;
-&lt;/main&gt;</tw-passagedata><tw-passagedata pid="46" name="choose360iframe" tags="" position="725,600" size="100,100">&lt;&lt;switch $passage&gt;&gt;
+&lt;/main&gt;</tw-passagedata><tw-passagedata pid="46" name="choose360iframe" tags="nobr" position="725,600" size="100,100">&lt;&lt;switch $passage&gt;&gt;
 &lt;&lt;case &quot;women360-1&quot;&gt;&gt;
 	&lt;iframe width=&quot;90%&quot; height=&quot;500px&quot; allowFullScreen=&quot;true&quot; allow=&quot;accelerometer; magnetometer; gyroscope&quot; style=&quot;display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);&quot; src=&quot;https://panoraven.com/en/embed/L6E5SHVzel&quot;&gt;&lt;/iframe&gt;
 &lt;&lt;case &quot;women360-2&quot;&gt;&gt;
@@ -1418,7 +1418,7 @@ To discover the frequency code turn to page 65 of this book.
        &lt;&lt;timed 3s&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/timed&gt;&gt;
       &lt;&lt;/if&gt;&gt;
         /% CODEWORD INCORRECT %/
-     &lt;&lt;if _password isnot &quot;&quot; and _password is not &quot;S&quot;&gt;&gt;
+     &lt;&lt;if _password isnot &quot;&quot; and _password isnot &quot;S&quot;&gt;&gt;
         &lt;&lt;replace &quot;#coderesult&quot;&gt;&gt;&lt;h2&gt;Thats not right.&lt;/h2&gt;&lt;&lt;/replace&gt;&gt;
       &lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;replace &quot;#coderesult&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/timed&gt;&gt;
         &lt;&lt;/if&gt;&gt;&lt;&lt;/button&gt;&gt; 
@@ -1458,7 +1458,7 @@ To discover the frequency code turn to page 65 of this book.
        &lt;&lt;timed 3s&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/timed&gt;&gt;
       &lt;&lt;/if&gt;&gt;
         /% CODEWORD INCORRECT %/
-     &lt;&lt;if _password isnot &quot;&quot; and _password is not &quot;N&quot;&gt;&gt;
+     &lt;&lt;if _password isnot &quot;&quot; and _password isnot &quot;N&quot;&gt;&gt;
         &lt;&lt;replace &quot;#coderesult&quot;&gt;&gt;&lt;h2&gt;Thats not right.&lt;/h2&gt;&lt;&lt;/replace&gt;&gt;
       &lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;replace &quot;#coderesult&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/timed&gt;&gt;
         &lt;&lt;/if&gt;&gt;&lt;&lt;/button&gt;&gt; 
@@ -1498,7 +1498,7 @@ To discover the frequency code turn to page 65 of this book.
        &lt;&lt;timed 3s&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/timed&gt;&gt;
       &lt;&lt;/if&gt;&gt;
         /% CODEWORD INCORRECT %/
-     &lt;&lt;if _password isnot &quot;&quot; and _password is not &quot;E&quot;&gt;&gt;
+     &lt;&lt;if _password isnot &quot;&quot; and _password isnot &quot;E&quot;&gt;&gt;
         &lt;&lt;replace &quot;#coderesult&quot;&gt;&gt;&lt;h2&gt;Thats not right.&lt;/h2&gt;&lt;&lt;/replace&gt;&gt;
       &lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;replace &quot;#coderesult&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/timed&gt;&gt;
         &lt;&lt;/if&gt;&gt;&lt;&lt;/button&gt;&gt; 
@@ -1538,7 +1538,7 @@ To discover the frequency code turn to page 65 of this book.
        &lt;&lt;timed 3s&gt;&gt;&lt;&lt;goto $nextpass&gt;&gt;&lt;&lt;/timed&gt;&gt;
       &lt;&lt;/if&gt;&gt;
         /% CODEWORD INCORRECT %/
-     &lt;&lt;if _password isnot &quot;&quot; and _password is not &quot;L&quot;&gt;&gt;
+     &lt;&lt;if _password isnot &quot;&quot; and _password isnot &quot;L&quot;&gt;&gt;
         &lt;&lt;replace &quot;#coderesult&quot;&gt;&gt;&lt;h2&gt;Thats not right.&lt;/h2&gt;&lt;&lt;/replace&gt;&gt;
       &lt;&lt;timed 1.5s&gt;&gt;&lt;&lt;replace &quot;#coderesult&quot;&gt;&gt;&lt;&lt;/replace&gt;&gt;&lt;&lt;/timed&gt;&gt;
         &lt;&lt;/if&gt;&gt;&lt;&lt;/button&gt;&gt; 

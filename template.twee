@@ -1355,10 +1355,10 @@ To discover the frequency code turn to page 65 of this book.
 
 <<timed 13s>>
     <<audio "ping1" "play">>
-    <<replace "#msgMount">>
+    <<append "#msgMount">>
     <span class="sender">Geraldine</span>
     <p>Googly Moogly is blocking anything that might jog my memory</p>
-    <</replace>>
+    <</append>>
 <</timed>>
 
 <<timed 17s>>
@@ -1381,10 +1381,10 @@ To discover the frequency code turn to page 65 of this book.
 
 <<timed 2s>>
     <<audio "ping1" "play">>
-    <<replace "#msgMount">>
+    <<append "#msgMount">>
     <span class="sender">Geraldine</span>
     <p>In a moment, I’ll send you a picture of a location</p>
-    <</replace>>
+    <</append>>
 <</timed>>
 
 <<timed 5s>>
@@ -1438,7 +1438,7 @@ To discover the frequency code turn to page 65 of this book.
 
 
 
-:: choose360iframe
+:: choose360iframe [nobr]
 <<switch $passage>>
 <<case "women360-1">>
 	<iframe width="90%" height="500px" allowFullScreen="true" allow="accelerometer; magnetometer; gyroscope" style="display:block; margin:20px auto; border:0 none; max-width:880px;border-radius:8px; box-shadow: 0 1px 1px rgba(0,0,0,0.11),0 2px 2px rgba(0,0,0,0.11),0 4px 4px rgba(0,0,0,0.11),0 6px 8px rgba(0,0,0,0.11),0 8px 16px rgba(0,0,0,0.11);" src="https://panoraven.com/en/embed/L6E5SHVzel"></iframe>
@@ -1505,7 +1505,7 @@ To discover the frequency code turn to page 65 of this book.
        <<timed 3s>><<goto $nextpass>><</timed>>
       <</if>>
         /% CODEWORD INCORRECT %/
-     <<if _password isnot "" and _password is not "S">>
+     <<if _password isnot "" and _password isnot "S">>
         <<replace "#coderesult">><h2>Thats not right.</h2><</replace>>
       <<timed 1.5s>><<replace "#coderesult">><</replace>><</timed>>
         <</if>><</button>> 
@@ -1554,7 +1554,7 @@ To discover the frequency code turn to page 65 of this book.
        <<timed 3s>><<goto $nextpass>><</timed>>
       <</if>>
         /% CODEWORD INCORRECT %/
-     <<if _password isnot "" and _password is not "N">>
+     <<if _password isnot "" and _password isnot "N">>
         <<replace "#coderesult">><h2>Thats not right.</h2><</replace>>
       <<timed 1.5s>><<replace "#coderesult">><</replace>><</timed>>
         <</if>><</button>> 
@@ -1601,7 +1601,7 @@ To discover the frequency code turn to page 65 of this book.
        <<timed 3s>><<goto $nextpass>><</timed>>
       <</if>>
         /% CODEWORD INCORRECT %/
-     <<if _password isnot "" and _password is not "E">>
+     <<if _password isnot "" and _password isnot "E">>
         <<replace "#coderesult">><h2>Thats not right.</h2><</replace>>
       <<timed 1.5s>><<replace "#coderesult">><</replace>><</timed>>
         <</if>><</button>> 
@@ -1648,7 +1648,7 @@ To discover the frequency code turn to page 65 of this book.
        <<timed 3s>><<goto $nextpass>><</timed>>
       <</if>>
         /% CODEWORD INCORRECT %/
-     <<if _password isnot "" and _password is not "L">>
+     <<if _password isnot "" and _password isnot "L">>
         <<replace "#coderesult">><h2>Thats not right.</h2><</replace>>
       <<timed 1.5s>><<replace "#coderesult">><</replace>><</timed>>
         <</if>><</button>> 
